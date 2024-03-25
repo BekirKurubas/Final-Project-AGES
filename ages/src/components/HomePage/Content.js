@@ -48,7 +48,7 @@ const Content = () => {
             <div
               style={{
                 padding: "20px",
-                fontSize: "18px",
+                fontSize: "16px",
                 whiteSpace: "pre-line",
               }}
             >
@@ -92,7 +92,7 @@ const Content = () => {
             <div
               style={{
                 padding: "20px",
-                fontSize: "14px",
+                fontSize: "12px",
                 whiteSpace: "pre-line",
               }}
             >
@@ -129,7 +129,7 @@ const Content = () => {
             <div
               style={{
                 padding: "20px",
-                fontSize: "14px",
+                fontSize: "12px",
                 whiteSpace: "pre-line",
               }}
             >
