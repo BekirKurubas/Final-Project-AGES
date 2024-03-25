@@ -30,9 +30,9 @@ const Content = () => {
       <div
         className="container-fluid"
         style={{
-          marginTop: "10px",
+          marginTop: "20px",
+          marginBottom: "20px",
           maxWidth: "100%",
-          margin: "0",
           padding: "0",
         }}
       >
@@ -47,9 +47,10 @@ const Content = () => {
           <div className="col-md-6 mb-4">
             <div
               style={{
-                padding: "20px",
+                padding: "10px",
                 fontSize: "16px",
                 whiteSpace: "pre-line",
+                marginTop: "20px",
               }}
             >
               <h1>Executive Summary</h1>
@@ -91,8 +92,8 @@ const Content = () => {
           <div className="col-md-6 mb-4">
             <div
               style={{
-                padding: "20px",
-                fontSize: "12px",
+                padding: "10px",
+                fontSize: "13px",
                 whiteSpace: "pre-line",
               }}
             >
@@ -120,7 +121,7 @@ const Content = () => {
           marginTop: "10px",
           maxWidth: "100%",
           margin: "0",
-          padding: "0",
+          padding: "10",
         }}
       ></div>
       <div className="container-fluid">
@@ -128,8 +129,8 @@ const Content = () => {
           <div className="col-md-6 mb-4">
             <div
               style={{
-                padding: "20px",
-                fontSize: "12px",
+                padding: "10px",
+                fontSize: "13px",
                 whiteSpace: "pre-line",
               }}
             >
@@ -175,8 +176,8 @@ const Content = () => {
           <div className="col-md-6 mb-4">
             <div
               style={{
-                padding: "20px",
-                fontSize: "22x",
+                padding: "10px",
+                fontSize: "23x",
                 whiteSpace: "pre-line",
                 marginBottom: "120px",
               }}
