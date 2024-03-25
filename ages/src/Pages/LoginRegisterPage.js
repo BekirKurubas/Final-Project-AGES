@@ -1,9 +1,9 @@
 import React from "react";
 import Header from "../components/ConstantComponent/Header";
-import Content from "../components/HomePage/Content";
+import Content from "../components/LoginRegisterPage/Content";
 import Footer from "../components/ConstantComponent/Footer";
 
-const HomePage = () => {
+const LoginRegisterPage = () => {
   return (
     <div>
       <Header />
@@ -13,4 +13,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default LoginRegisterPage;
