@@ -168,7 +168,7 @@ const Content = () => {
               <img
                 src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/conclusion.jpg"
                 alt="Conculusion"
-                style={{ width: "100%", height: "auto" }}
+                style={{ marginBottom: "40px", width: "100%", height: "auto" }}
               />
             </div>
           </div>
@@ -176,8 +176,9 @@ const Content = () => {
             <div
               style={{
                 padding: "20px",
-                fontSize: "19px",
+                fontSize: "22x",
                 whiteSpace: "pre-line",
+                marginBottom: "120px",
               }}
             >
               <h1>Conclusion</h1>
@@ -194,7 +195,7 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <div className="text-center" style={{ marginBottom: "60px" }}>
+      <div className="text-center" style={{ marginBottom: "120px" }}>
         <h1>Our Clients Speak</h1>
         <p>We have been working with clients around the world</p>
       </div>
