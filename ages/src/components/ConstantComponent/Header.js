@@ -1,5 +1,6 @@
 import React from "react";
 import { FaHome } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -18,14 +19,10 @@ const Header = () => {
               What is TELC Language Test ?
             </a>
           </div>
-          <div className="navbar-text">
-            <a
-              className="nav-link active"
-              aria-current="page"
-              href="/model-test"
-            >
-              Let's Try Model Test
-            </a>
+          <div className="text-center" style={{ marginBottom: "20px" }}>
+            <Link to="/login-register" className="btn btn-primary">
+              Let's try Model Test
+            </Link>
           </div>
         </div>
       </nav>
@@ -43,7 +40,7 @@ const Header = () => {
             <a
               className="nav-link active"
               aria-current="page"
-              href="/language-test"
+              href="/"
               style={{ color: "#FFFFFF" }}
             >
               <h1>AGES</h1>

@@ -1,13 +1,12 @@
 import React from "react";
 import Header from "../components/ConstantComponent/Header";
-import Content from "../components/LoginRegisterPage/Content";
 import Footer from "../components/ConstantComponent/Footer";
 
 const LoginRegisterPage = () => {
   return (
     <div>
       <Header />
-      <Content />
+      <h1>Login Register</h1>
       <Footer />
     </div>
   );
