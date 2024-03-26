@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { FaUser, FaHeart, FaStar, FaSmile } from "react-icons/fa";
+import { LiaReadme } from "react-icons/lia";
+import { FaRegQuestionCircle } from "react-icons/fa";
+import { GrAssistListening } from "react-icons/gr";
+import { TfiWrite } from "react-icons/tfi";
 
 const Content = () => {
   const [people, setPeople] = useState([]);
@@ -38,7 +41,7 @@ const Content = () => {
   };
 
   const gapStyle = {
-    width: "10px",
+    width: "30px",
     height: "100%",
   };
 
@@ -218,30 +221,72 @@ const Content = () => {
         <div className="row">
           <div className="col-md-3" style={cardStyle}>
             <div style={{ float: "right" }}>
-              <FaUser />
+              <LiaReadme style={{ width: "45px", height: "45px" }} />
             </div>
-            <p>Lorem ipsum dolor sit amet</p>
+            <br />
+            <br />
+            <p>
+              <b>Lesen Verstehen</b>
+            </p>
+            <div style={{ fontSize: "10px" }}>
+              <p>
+                Textverständnis übungen, Fragen zu Texten, Antworten finden,
+                Lesekompetenz stärken
+              </p>
+            </div>
           </div>
           <div className="col-md-3" style={gapStyle}></div>
           <div className="col-md-3" style={cardStyle}>
             <div style={{ float: "right" }}>
-              <FaHeart />
+              <FaRegQuestionCircle style={{ width: "45px", height: "45px" }} />
             </div>
-            <p>Consectetur adipiscing elit</p>
+            <br />
+            <br />
+            <p>
+              <b>Sprachbausteine</b>
+            </p>
+            <div style={{ fontSize: "10px" }}>
+              <p>
+                Satzbausteine, Grammatik, Kommunikationsfähigkeiten
+                verbessern,Wortschatz
+              </p>
+            </div>
           </div>
           <div className="col-md-3" style={gapStyle}></div>
           <div className="col-md-3" style={cardStyle}>
             <div style={{ float: "right" }}>
-              <FaStar />
+              <GrAssistListening style={{ width: "45px", height: "45px" }} />
             </div>
-            <p>Sed do eiusmod tempor incididunt</p>
+            <br />
+            <br />
+            <p>
+              <b>Hören Verstehen</b>
+            </p>
+            <div style={{ fontSize: "10px" }}>
+              <p>
+                Hörverständnis übungen, Fragen beantworten , Hörtexte,
+                Zuhörkompetenz stärken
+              </p>
+            </div>
           </div>
           <div className="col-md-3" style={gapStyle}></div>
           <div className="col-md-3" style={cardStyle}>
             <div style={{ float: "right" }}>
-              <FaSmile />
+              <TfiWrite style={{ width: "45px", height: "45px" }} />
             </div>
-            <p>Ut labore et dolore magna aliqua</p>
+            <br />
+            <br />
+            <p>
+              <div style={{ fontSize: "13px" }}>
+                <b>Schriftliche Ausdruck</b>
+                <div style={{ fontSize: "10px" }}>
+                  <p>
+                    Schreibübungen, Textverfassen, Ausdrucksfähigkeit
+                    verbessern, Schreibfertigkeit entwickeln.
+                  </p>
+                </div>
+              </div>
+            </p>
           </div>
         </div>
       </div>
