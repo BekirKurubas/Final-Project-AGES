@@ -34,6 +34,7 @@ const Content = () => {
     color: "white",
     marginBottom: "100px",
     marginLeft: "20px",
+    borderRadius: "20px",
   };
 
   const gapStyle = {
