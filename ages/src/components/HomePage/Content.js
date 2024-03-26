@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { FaUser, FaHeart, FaStar, FaSmile } from "react-icons/fa";
 
 const Content = () => {
   const [people, setPeople] = useState([]);
@@ -23,6 +24,21 @@ const Content = () => {
         </div>
       </div>
     );
+  };
+
+  const cardStyle = {
+    width: "170px",
+    height: "170px",
+    padding: "20px",
+    backgroundColor: "red",
+    color: "white",
+    marginBottom: "100px",
+    marginLeft: "20px",
+  };
+
+  const gapStyle = {
+    width: "10px",
+    height: "100%",
   };
 
   return (
@@ -196,7 +212,40 @@ const Content = () => {
           </div>
         </div>
       </div>
-      <div className="text-center" style={{ marginBottom: "120px" }}>
+
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-3" style={cardStyle}>
+            <div style={{ float: "right" }}>
+              <FaUser />
+            </div>
+            <p>Lorem ipsum dolor sit amet</p>
+          </div>
+          <div className="col-md-3" style={gapStyle}></div>
+          <div className="col-md-3" style={cardStyle}>
+            <div style={{ float: "right" }}>
+              <FaHeart />
+            </div>
+            <p>Consectetur adipiscing elit</p>
+          </div>
+          <div className="col-md-3" style={gapStyle}></div>
+          <div className="col-md-3" style={cardStyle}>
+            <div style={{ float: "right" }}>
+              <FaStar />
+            </div>
+            <p>Sed do eiusmod tempor incididunt</p>
+          </div>
+          <div className="col-md-3" style={gapStyle}></div>
+          <div className="col-md-3" style={cardStyle}>
+            <div style={{ float: "right" }}>
+              <FaSmile />
+            </div>
+            <p>Ut labore et dolore magna aliqua</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="text-center" style={{ marginBottom: "100px" }}>
         <h1>Our Clients Speak</h1>
         <p>We have been working with clients around the world</p>
       </div>
