@@ -7,15 +7,11 @@ const Telcheader = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-white justify-content-between">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <a className="navbar-brand" href="/Telc">
             <FaHome /> AGES
           </a>
           <div className="navbar-text">
-            <a
-              className="nav-link active"
-              aria-current="page"
-              href="/language-test"
-            >
+            <a className="nav-link active" aria-current="page" href="/Telc">
               What is TELC Language Test ?
             </a>
           </div>
@@ -40,7 +36,7 @@ const Telcheader = () => {
             <a
               className="nav-link active"
               aria-current="page"
-              href="/"
+              href="/Telc"
               style={{ color: "#FFFFFF" }}
             >
               <h1>TELC</h1>

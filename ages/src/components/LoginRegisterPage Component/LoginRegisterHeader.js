@@ -11,11 +11,7 @@ const LoginRegisterHeader = () => {
             <FaHome /> AGES
           </a>
           <div className="navbar-text">
-            <a
-              className="nav-link active"
-              aria-current="page"
-              href="/language-test"
-            >
+            <a className="nav-link active" aria-current="page" href="/Telc">
               What is TELC Language Test ?
             </a>
           </div>
@@ -40,7 +36,7 @@ const LoginRegisterHeader = () => {
             <a
               className="nav-link active"
               aria-current="page"
-              href="/"
+              href="/login-register"
               style={{ color: "#FFFFFF" }}
             >
               <h1>Login / Register</h1>
