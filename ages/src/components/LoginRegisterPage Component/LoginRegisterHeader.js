@@ -1,44 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const LoginRegisterHeader = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <div>
-      <nav className="navbar navbar-expand-md bg-white justify-content-between">
+      <nav className="navbar navbar-expand-md bg-white justify-content-between mb-2">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <FaHome /> AGES
+            <FaHome /> <b>AGES</b>
           </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <button className="navbar-toggler" type="button" onClick={toggleMenu}>
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav mx-auto">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/Telc">
-                  What is TELC Language Test ?
-                </a>
-              </li>
-            </ul>
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link
-                  to="/login-register"
-                  className="nav-link btn btn-primary btn-lg"
-                >
-                  Let's try Model Test
-                </Link>
-              </li>
-            </ul>
+          <div className={`collapse navbar-collapse ${showMenu && "show"}`}>
+            <div className="d-md-flex justify-content-md-center align-items-md-center flex-md-grow-1">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link
+                    to="/Telc"
+                    className="nav-link btn btn-primary"
+                    style={{
+                      backgroundColor: "white",
+                      borderWidth: "2px",
+                      borderStyle: "solid",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "blue";
+                      e.target.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "white";
+                      e.target.style.color = "";
+                    }}
+                  >
+                    <b>What is TELC Language Test ?</b>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div className="d-flex justify-content-end">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link
+                    to="/login-register"
+                    className="nav-link btn btn-primary"
+                    style={{
+                      backgroundColor: "white",
+                      borderWidth: "2px",
+                      borderStyle: "solid",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.target.style.backgroundColor = "blue";
+                      e.target.style.color = "white";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.target.style.backgroundColor = "white";
+                      e.target.style.color = "";
+                    }}
+                  >
+                    <b>Let's try Model Test</b>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>

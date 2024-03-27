@@ -61,7 +61,7 @@ const Header = () => {
                   }}
                   onMouseLeave={(e) => {
                     e.target.style.backgroundColor = "white";
-                    e.target.style.color = ""; // İçindeki yazı rengini tekrar orijinal haline dönüştür
+                    e.target.style.color = "";
                   }}
                 >
                   <b>Let's try Model Test</b>
