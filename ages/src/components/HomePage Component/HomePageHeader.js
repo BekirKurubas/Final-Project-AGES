@@ -53,6 +53,7 @@ const HomePageHeader = () => {
                       backgroundColor: "white",
                       borderWidth: "2px",
                       borderStyle: "solid",
+                      marginLeft: "90px",
                     }}
                     onMouseEnter={(e) => {
                       e.target.style.backgroundColor = "blue";
@@ -111,7 +112,7 @@ const HomePageHeader = () => {
             <a
               className="nav-link active"
               aria-current="page"
-              href="/Telc"
+              href="/"
               style={{ color: "#FFFFFF" }}
             >
               <h1>AGES</h1>

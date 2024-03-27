@@ -30,7 +30,7 @@ const Content = () => {
   };
 
   const cardStyle = {
-    width: "170px",
+    width: "190px",
     height: "170px",
     padding: "20px",
     backgroundColor: "red",

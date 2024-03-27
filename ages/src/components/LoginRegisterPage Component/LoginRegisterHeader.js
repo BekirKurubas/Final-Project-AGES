@@ -53,6 +53,7 @@ const LoginRegisterHeader = () => {
                       backgroundColor: "white",
                       borderWidth: "2px",
                       borderStyle: "solid",
+                      marginLeft: "90px",
                     }}
                     onMouseEnter={(e) => {
                       e.target.style.backgroundColor = "blue";
