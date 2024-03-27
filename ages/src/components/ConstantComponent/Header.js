@@ -12,7 +12,7 @@ const Header = () => {
           </a>
           <div className="text-center" style={{ marginBottom: "20px" }}>
             <Link
-              to="/login-register"
+              to="/Telc"
               className="btn btn-primary"
               style={{ backgroundColor: "grey" }}
             >
