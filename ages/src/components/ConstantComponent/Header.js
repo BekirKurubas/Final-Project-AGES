@@ -25,9 +25,21 @@ const Header = () => {
                 <Link
                   to="/Telc"
                   className="nav-link btn btn-primary"
-                  style={{ backgroundColor: "grey" }}
+                  style={{
+                    backgroundColor: "white",
+                    borderWidth: "2px",
+                    borderStyle: "solid",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "blue";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "white";
+                    e.target.style.color = "";
+                  }}
                 >
-                  What is TELC Language Test ?
+                  <b>What is TELC Language Test ?</b>
                 </Link>
               </li>
             </ul>
@@ -35,8 +47,24 @@ const Header = () => {
           <div className="d-flex justify-content-end">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link to="/login-register" className="nav-link btn btn-primary">
-                  Let's try Model Test
+                <Link
+                  to="/login-register"
+                  className="nav-link btn btn-primary"
+                  style={{
+                    backgroundColor: "white",
+                    borderWidth: "2px",
+                    borderStyle: "solid",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.backgroundColor = "blue";
+                    e.target.style.color = "white";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.backgroundColor = "white";
+                    e.target.style.color = ""; // İçindeki yazı rengini tekrar orijinal haline dönüştür
+                  }}
+                >
+                  <b>Let's try Model Test</b>
                 </Link>
               </li>
             </ul>
