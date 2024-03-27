@@ -8,12 +8,16 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-white justify-content-between">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <FaHome /> AGES
+            <FaHome /> <b>AGES</b>
           </a>
-          <div className="navbar-text">
-            <a className="nav-link active" aria-current="page" href="/Telc">
+          <div className="text-center" style={{ marginBottom: "20px" }}>
+            <Link
+              to="/login-register"
+              className="btn btn-primary"
+              style={{ backgroundColor: "grey" }}
+            >
               What is TELC Language Test ?
-            </a>
+            </Link>
           </div>
           <div className="text-center" style={{ marginBottom: "20px" }}>
             <Link to="/login-register" className="btn btn-primary">

@@ -7,7 +7,7 @@ const Telcheader = () => {
     <div>
       <nav className="navbar navbar-expand-lg bg-white justify-content-between">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/Telc">
+          <a className="navbar-brand" href="/">
             <FaHome /> AGES
           </a>
           <div className="navbar-text">

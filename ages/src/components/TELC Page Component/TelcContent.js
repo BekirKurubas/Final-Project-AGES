@@ -36,7 +36,17 @@ const TelcContent = () => {
               communication. Connecting with people around the world,
               understanding others, being understood, and using your skills
               confidently in real-life situations is the key to success. telc
-              helps you get there.
+              helps you get there.To learn more about TELC German Exams, please
+              click{" "}
+              <span>
+                <a
+                  href="https://www.telc.net/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  here
+                </a>
+              </span>
             </p>
           </div>
         </div>
@@ -46,7 +56,7 @@ const TelcContent = () => {
               <img
                 src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/summary-writing.jpg"
                 alt="Summary Writing"
-                style={{ width: "100%", height: "300px" }}
+                style={{ width: "100%", height: "320px" }}
               />
             </div>
           </div>

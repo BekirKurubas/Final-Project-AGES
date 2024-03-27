@@ -21,17 +21,32 @@ const Footer = () => {
             <p>Stay connected with us on social media.</p>
             <ul className="social-icons">
               <li>
-                <a className="navbar-brand" href="https://www.instagram.com/">
+                <a
+                  className="navbar-brand"
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaInstagram />
                 </a>
               </li>
               <li>
-                <a className="navbar-brand" href="https://www.facebook.com/">
+                <a
+                  className="navbar-brand"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaFacebook />
                 </a>
               </li>
               <li>
-                <a className="navbar-brand" href="https://www.twitter.com/">
+                <a
+                  className="navbar-brand"
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <FaXTwitter />
                 </a>
               </li>
