@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Content = () => {
   return (
@@ -20,16 +21,18 @@ const Content = () => {
           <br />
           <div className="row">
             <div className="col-md-6">
-              <button
-                className="btn btn-primary"
-                style={{
-                  marginBottom: "10px",
-                  width: "100%",
-                  backgroundColor: "red",
-                }}
-              >
-                Login
-              </button>
+              <Link to="/login" style={{ color: "white" }}>
+                <button
+                  className="btn btn-primary"
+                  style={{
+                    marginBottom: "10px",
+                    width: "100%",
+                    backgroundColor: "red",
+                  }}
+                >
+                  Login
+                </button>
+              </Link>
             </div>
             <div
               className="col-md-6"
