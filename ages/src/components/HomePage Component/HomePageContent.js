@@ -40,17 +40,11 @@ const Content = () => {
     borderRadius: "20px",
   };
 
-  const gapStyle = {
-    width: "30px",
-    height: "100%",
-  };
-
   return (
     <div>
       <div
         className="container-fluid"
         style={{
-          marginTop: "0px",
           marginBottom: "20px",
           maxWidth: "100%",
           padding: "0",
@@ -59,7 +53,7 @@ const Content = () => {
         <img
           src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/AGES.png"
           alt="AGES"
-          style={{ marginTop: "10px", width: "100%", height: "auto" }}
+          style={{ marginTop: "0px", width: "100%", height: "auto" }}
         />
       </div>
       <div className="container-fluid">
@@ -218,8 +212,8 @@ const Content = () => {
       </div>
 
       <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-3" style={cardStyle}>
+        <div className="row text-center">
+          <div className="col-md-3 col-6" style={cardStyle}>
             <div style={{ float: "right" }}>
               <LiaReadme style={{ width: "45px", height: "45px" }} />
             </div>
@@ -235,8 +229,7 @@ const Content = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-3" style={gapStyle}></div>
-          <div className="col-md-3" style={cardStyle}>
+          <div className="col-md-3 col-6" style={cardStyle}>
             <div style={{ float: "right" }}>
               <FaRegQuestionCircle style={{ width: "45px", height: "45px" }} />
             </div>
@@ -252,8 +245,7 @@ const Content = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-3" style={gapStyle}></div>
-          <div className="col-md-3" style={cardStyle}>
+          <div className="col-md-3 col-6" style={cardStyle}>
             <div style={{ float: "right" }}>
               <GrAssistListening style={{ width: "45px", height: "45px" }} />
             </div>
@@ -269,8 +261,7 @@ const Content = () => {
               </p>
             </div>
           </div>
-          <div className="col-md-3" style={gapStyle}></div>
-          <div className="col-md-3" style={cardStyle}>
+          <div className="col-md-3 col-6" style={cardStyle}>
             <div style={{ float: "right" }}>
               <TfiWrite style={{ width: "45px", height: "45px" }} />
             </div>
