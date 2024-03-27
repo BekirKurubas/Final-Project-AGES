@@ -82,9 +82,14 @@ function LoginPageContent() {
               <Button
                 variant="primary"
                 type="submit"
-                style={{ marginTop: "10px" }}
+                style={{
+                  marginTop: "10px",
+                  backgroundColor: "white",
+                  width: "100%",
+                  color: "#FF0000",
+                }}
               >
-                Sign In
+                <b>Login</b>
               </Button>
             </Form>
           </Container>
