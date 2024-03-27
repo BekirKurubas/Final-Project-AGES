@@ -50,7 +50,7 @@ const Content = () => {
       <div
         className="container-fluid"
         style={{
-          marginTop: "20px",
+          marginTop: "0px",
           marginBottom: "20px",
           maxWidth: "100%",
           padding: "0",
