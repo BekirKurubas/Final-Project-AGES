@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Content = () => {
+const LoginRegisterContent = () => {
   return (
     <div className="container-fluid" style={{ marginTop: "20px" }}>
       <div className="row">
@@ -23,7 +23,7 @@ const Content = () => {
             <div className="col-md-6">
               <Link to="/login" style={{ color: "white" }}>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-primary btn-lg"
                   style={{
                     marginBottom: "10px",
                     width: "100%",
@@ -34,17 +34,19 @@ const Content = () => {
                 </button>
               </Link>
             </div>
-            <div
-              className="col-md-6"
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <span style={{ marginRight: "15px" }}>or</span>
-              <button
-                className="btn btn-primary"
-                style={{ width: "100%", backgroundColor: "red" }}
-              >
-                Register
-              </button>
+            <div className="col-md-6">
+              <Link to="/register" style={{ color: "white" }}>
+                <button
+                  className="btn btn-primary btn-lg"
+                  style={{
+                    marginBottom: "10px",
+                    width: "100%",
+                    backgroundColor: "red",
+                  }}
+                >
+                  Register
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -64,4 +66,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default LoginRegisterContent;
