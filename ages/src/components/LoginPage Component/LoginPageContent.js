@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function LoginPageContent() {
   const [username, setUsername] = useState("");
@@ -78,19 +79,20 @@ function LoginPageContent() {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </Form.Group>
-
-              <Button
-                variant="primary"
-                type="submit"
-                style={{
-                  marginTop: "10px",
-                  backgroundColor: "white",
-                  width: "100%",
-                  color: "#FF0000",
-                }}
-              >
-                <b>Login</b>
-              </Button>
+              <Link to="/start-exam" style={{ color: "white" }}>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  style={{
+                    marginTop: "10px",
+                    backgroundColor: "white",
+                    width: "100%",
+                    color: "#FF0000",
+                  }}
+                >
+                  Login
+                </Button>
+              </Link>
             </Form>
           </Container>
         </div>

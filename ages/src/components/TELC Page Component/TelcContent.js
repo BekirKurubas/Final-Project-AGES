@@ -47,7 +47,7 @@ const TelcContent = () => {
                 <img
                   src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/telc2.png"
                   alt="telc 2"
-                  style={{ width: "100%", height: "320px" }}
+                  style={{ width: "100%", height: "290px" }}
                 />
               </div>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function RegisterPageContent() {
   const [username, setUsername] = useState("");
@@ -88,18 +89,19 @@ function RegisterPageContent() {
             </Form.Group>
             <br />
 
-            <Button
-              variant="primary"
-              type="submit"
-              style={{
-                marginTop: "10px",
-                backgroundColor: "white",
-                width: "100%",
-                color: "#FF0000",
-              }}
-            >
-              <b>Register</b>
-            </Button>
+            <Link to="/login" style={{ color: "white" }}>
+              <button
+                className="btn btn-primary btn-lg"
+                style={{
+                  marginBottom: "10px",
+                  width: "100%",
+                  backgroundColor: "white",
+                  color: "red",
+                }}
+              >
+                Register
+              </button>
+            </Link>
           </Form>
         </Container>
       </div>
