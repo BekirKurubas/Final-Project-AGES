@@ -15,9 +15,8 @@ const StartExamPageContent = () => {
                 marginLeft: "40px",
               }}
             >
-              <h3>
+              <h3 style={{ marginBottom: "25px" }}>
                 <b>Please Read Before Start!</b>
-                <br />
               </h3>
               <p>
                 In this exam, there is just “Lesen Verstehen” and
@@ -28,7 +27,6 @@ const StartExamPageContent = () => {
               <h4
                 style={{
                   color: "red",
-                  textAlign: "center",
                   marginTop: "60px",
                   marginBottom: "60px",
                 }}
