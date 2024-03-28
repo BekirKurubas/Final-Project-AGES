@@ -36,7 +36,7 @@ const Content = () => {
     backgroundColor: "red",
     color: "white",
     marginBottom: "100px",
-    marginLeft: "20px",
+    marginLeft: "25px",
     borderRadius: "20px",
   };
 

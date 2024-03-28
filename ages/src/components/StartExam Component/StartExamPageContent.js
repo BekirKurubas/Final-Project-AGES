@@ -12,11 +12,10 @@ const StartExamPageContent = () => {
                 paddingTop: "80px",
                 fontSize: "16px",
                 whiteSpace: "pre-line",
-
                 marginLeft: "40px",
               }}
             >
-              <h3 style={{ marginBottom: "50px" }}>
+              <h3>
                 <b>Please Read Before Start!</b>
                 <br />
               </h3>
@@ -26,21 +25,30 @@ const StartExamPageContent = () => {
                 start this exam, it will be started 90 minutes time clock. Good
                 Luck !
               </p>
-              <div className="text-left">
-                <Button
-                  color="danger"
-                  size="lg"
-                  style={{
-                    borderRadius: "50%",
-                    width: "100px",
-                    height: "100px",
-                    marginTop: "50px",
-                    marginLeft: "180px",
-                  }}
-                >
-                  <span style={{ color: "white" }}>START</span>
-                </Button>
-              </div>
+              <h4
+                style={{
+                  color: "red",
+                  textAlign: "center",
+                  marginTop: "60px",
+                  marginBottom: "60px",
+                }}
+              >
+                START B1 GERMAN TELC MODEL TEST !
+              </h4>
+            </div>
+            <div className="col-md-12 text-center mt-3">
+              <Button
+                color="danger"
+                size="lg"
+                style={{
+                  borderRadius: "50%",
+                  width: "100px",
+                  height: "100px",
+                  marginBottom: "20px",
+                }}
+              >
+                <span style={{ color: "white" }}>START</span>
+              </Button>
             </div>
           </div>
           <div className="col-md-6 mb-4 mt-1">
