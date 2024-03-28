@@ -1,7 +1,6 @@
 import React from "react";
-import { FaInstagram, FaFacebook, FaXTwitter } from "react-icons/fa6";
-import {} from "react-icons/fa6";
-
+import { FaInstagram, FaFacebook, FaTwitter } from "react-icons/fa";
+import "../../App.css";
 const Footer = () => {
   return (
     <footer className="footer">
@@ -19,38 +18,35 @@ const Footer = () => {
           <div className="col-md-4">
             <h3>Follow Us</h3>
             <p>Stay connected with us on social media.</p>
-            <ul className="social-icons">
-              <li>
-                <a
-                  className="navbar-brand"
-                  href="https://www.instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaInstagram />
-                </a>
-              </li>
-              <li>
-                <a
-                  className="navbar-brand"
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaFacebook />
-                </a>
-              </li>
-              <li>
-                <a
-                  className="navbar-brand"
-                  href="https://www.facebook.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <FaXTwitter />
-                </a>
-              </li>
-            </ul>
+            <div className="social-icons">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram
+                  className="icon"
+                  style={{ color: "white", marginRight: "10px" }}
+                />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook
+                  className="icon"
+                  style={{ color: "white", marginRight: "10px" }}
+                />
+              </a>
+              <a
+                href="https://www.twitter.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter className="icon" style={{ color: "white" }} />
+              </a>
+            </div>
           </div>
         </div>
       </div>
