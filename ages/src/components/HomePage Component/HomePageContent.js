@@ -6,6 +6,7 @@ import KeyFeaturesRow from "./KeyFeatures";
 import ConclusionRow from "./ConclusionRow";
 import IconsCardRow from "./IconsCardRow";
 import AufbauRow from "./AufbauRow";
+import ClientRow from "./ClientRow";
 
 const Content = () => {
   const [people, setPeople] = useState([]);
@@ -48,10 +49,8 @@ const Content = () => {
 
       <AufbauRow />
 
-      <div className="text-center" style={{ marginBottom: "80px" }}>
-        <h1>Our Clients Speak</h1>
-        <p>We have been working with clients around the world</p>
-      </div>
+      <ClientRow />
+
       <div className="container-fluid">
         <div className="row">
           {people.map((person, index) => (
