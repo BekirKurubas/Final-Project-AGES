@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
+import { Link } from "react-router-dom";
 
 const StartExamPageContent = () => {
   return (
@@ -35,18 +36,20 @@ const StartExamPageContent = () => {
               </h4>
             </div>
             <div className="col-md-12 text-center mt-3">
-              <Button
-                color="danger"
-                size="lg"
-                style={{
-                  borderRadius: "50%",
-                  width: "100px",
-                  height: "100px",
-                  marginBottom: "20px",
-                }}
-              >
-                <span style={{ color: "white" }}>START</span>
-              </Button>
+              <Link to="/exam-page-1" style={{ color: "white" }}>
+                <Button
+                  color="danger"
+                  size="lg"
+                  style={{
+                    borderRadius: "50%",
+                    width: "100px",
+                    height: "100px",
+                    marginBottom: "20px",
+                  }}
+                >
+                  <span style={{ color: "white" }}>START</span>
+                </Button>
+              </Link>
             </div>
           </div>
           <div className="col-md-6 mb-4 mt-1">
