@@ -1,34 +1,10 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
-import HomePage from "./Pages/HomePage";
-import LoginRegisterPage from "./Pages/LoginRegisterPage";
-import TelcPage from "./Pages/TelcPage";
-import LoginPage from "./Pages/LoginPage";
-import RegisterPage from "./Pages/RegisterPage";
-import StartExamPage from "./Pages/StartExamPage";
-import ExamPage1 from "./Pages/ExamPage1";
-import ExamPage2 from "./Pages/ExamPage2";
-import ExamPage3 from "./Pages/ExamPage3";
-import ExamPage4 from "./Pages/ExamPage4";
-import ExamPage5 from "./Pages/ExamPage5";
+import PagesRoutes from "./Pages/PagesRoutes";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login-register" element={<LoginRegisterPage />} />
-        <Route path="/Telc" element={<TelcPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/start-exam" element={<StartExamPage />} />
-        <Route path="/exam-page-1" element={<ExamPage1 />} />
-        <Route path="/exam-page-2" element={<ExamPage2 />} />
-        <Route path="/exam-page-3" element={<ExamPage3 />} />
-        <Route path="/exam-page-4" element={<ExamPage4 />} />
-        <Route path="/exam-page-5" element={<ExamPage5 />} />
-      </Routes>
+      <PagesRoutes />
     </div>
   );
 }
