@@ -1,40 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap";
 
 const ExamPage1Content = ({ lv1Urls }) => {
-  const [loading, setLoading] = useState(true);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null)); // Başlangıçta seçilen seçenekler null
+  const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false)); // Dropdown açılıp kapanmasını sağlayacak state
 
-  useEffect(() => {
-    const images = lv1Urls.map((url) => {
-      const image = new Image();
-      image.onload = () => {
-        setImagesLoaded((prev) => prev + 1);
-      };
-      image.src = url;
-      return image;
-    });
+  // Dropdown açılıp kapanmasını kontrol eden fonksiyonlar
+  const toggleDropdown = (index) => {
+    const updatedDropdownOpen = [...dropdownOpen];
+    updatedDropdownOpen[index] = !updatedDropdownOpen[index];
+    setDropdownOpen(updatedDropdownOpen);
+  };
 
-    return () => {
-      images.forEach((image) => {
-        image.onload = null;
-      });
-    };
-  }, [lv1Urls]);
-
-  useEffect(() => {
-    if (imagesLoaded === lv1Urls.length) {
-      setLoading(false);
+  // Seçilen seçeneği güncelleyen fonksiyon
+  const handleOptionSelect = (option, index) => {
+    if (!selectedOptions.includes(option)) {
+      const updatedOptions = [...selectedOptions];
+      updatedOptions[index] = option;
+      setSelectedOptions(updatedOptions);
     }
-  }, [imagesLoaded, lv1Urls.length]);
+  };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  // Dropdown menü içeriği için seçeneklerin harflerini oluştur
+  const dropdownOptions = Array.from({ length: 10 }, (_, index) =>
+    String.fromCharCode(97 + index)
+  );
 
-  const ImageGallery = ({ imageUrls }) => {
-    return (
-      <div style={{ display: "flex", flexDirection: "row" }}>
-        {imageUrls.map((url, index) => (
+  return (
+    <div>
+      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        {lv1Urls.map((url, index) => (
           <img
             key={index}
             src={url}
@@ -43,12 +43,47 @@ const ExamPage1Content = ({ lv1Urls }) => {
           />
         ))}
       </div>
-    );
-  };
-
-  return (
-    <div>
-      <ImageGallery imageUrls={lv1Urls} />
+      <div
+        className="d-flex p-5"
+        style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+      >
+        {[...Array(5)].map((_, index) => (
+          <div
+            key={index}
+            className="mr-3 mb-3"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              marginRight: "50px",
+            }}
+          >
+            <h4 style={{ marginRight: "10px" }}>{[index + 1]})</h4>
+            <Dropdown
+              isOpen={dropdownOpen[index]}
+              toggle={() => toggleDropdown(index)}
+            >
+              <DropdownToggle caret>Options</DropdownToggle>
+              <DropdownMenu>
+                {dropdownOptions.map((option, i) => (
+                  <DropdownItem
+                    key={option}
+                    onClick={() => handleOptionSelect(option, index)}
+                    disabled={selectedOptions[index] === option}
+                  >
+                    <span>
+                      <b>Answer : {option}</b>
+                    </span>
+                  </DropdownItem>
+                ))}
+              </DropdownMenu>
+            </Dropdown>
+            <span style={{ marginLeft: "10px" }}>
+              <b>Answer : ( {selectedOptions[index]} )</b>
+            </span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
