@@ -10,6 +10,8 @@ import StartExamPage from "./Pages/StartExamPage";
 import ExamPage1 from "./Pages/ExamPage1";
 import ExamPage2 from "./Pages/ExamPage2";
 import ExamPage3 from "./Pages/ExamPage3";
+import ExamPage4 from "./Pages/ExamPage4";
+import ExamPage5 from "./Pages/ExamPage5";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
         <Route path="/exam-page-1" element={<ExamPage1 />} />
         <Route path="/exam-page-2" element={<ExamPage2 />} />
         <Route path="/exam-page-3" element={<ExamPage3 />} />
+        <Route path="/exam-page-4" element={<ExamPage4 />} />
+        <Route path="/exam-page-5" element={<ExamPage5 />} />
       </Routes>
     </div>
   );

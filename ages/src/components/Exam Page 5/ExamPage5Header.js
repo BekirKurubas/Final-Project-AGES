@@ -1,6 +1,6 @@
 import React from "react";
 
-const ExamPage3Header = () => {
+const ExamPage5Header = () => {
   return (
     <>
       <nav
@@ -18,10 +18,10 @@ const ExamPage3Header = () => {
             <a
               className="nav-link active"
               aria-current="page"
-              href="/exam-page-3"
+              href="/exam-page-5"
               style={{ color: "#FFFFFF" }}
             >
-              <h1>EXAM PAGE -3-</h1>
+              <h1>EXAM PAGE -5-</h1>
             </a>
           </div>
         </div>
@@ -30,4 +30,4 @@ const ExamPage3Header = () => {
   );
 };
 
-export default ExamPage3Header;
+export default ExamPage5Header;
