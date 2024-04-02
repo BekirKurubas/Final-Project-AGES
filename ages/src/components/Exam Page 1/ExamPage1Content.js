@@ -4,20 +4,19 @@ import {
   DropdownToggle,
   DropdownMenu,
   DropdownItem,
+  Button,
 } from "reactstrap";
 
 const ExamPage1Content = ({ lv1Urls }) => {
-  const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null)); // Başlangıçta seçilen seçenekler null
-  const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false)); // Dropdown açılıp kapanmasını sağlayacak state
+  const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null));
+  const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false));
 
-  // Dropdown açılıp kapanmasını kontrol eden fonksiyonlar
   const toggleDropdown = (index) => {
     const updatedDropdownOpen = [...dropdownOpen];
     updatedDropdownOpen[index] = !updatedDropdownOpen[index];
     setDropdownOpen(updatedDropdownOpen);
   };
 
-  // Seçilen seçeneği güncelleyen fonksiyon
   const handleOptionSelect = (option, index) => {
     if (!selectedOptions.includes(option)) {
       const updatedOptions = [...selectedOptions];
@@ -26,7 +25,6 @@ const ExamPage1Content = ({ lv1Urls }) => {
     }
   };
 
-  // Dropdown menü içeriği için seçeneklerin harflerini oluştur
   const dropdownOptions = Array.from({ length: 10 }, (_, index) =>
     String.fromCharCode(97 + index)
   );
@@ -56,14 +54,18 @@ const ExamPage1Content = ({ lv1Urls }) => {
               flexDirection: "row",
               alignItems: "center",
               marginRight: "50px",
+              marginTop: "50px",
             }}
           >
             <h4 style={{ marginRight: "10px" }}>{[index + 1]})</h4>
             <Dropdown
               isOpen={dropdownOpen[index]}
               toggle={() => toggleDropdown(index)}
+              className="custom-dropdown"
             >
-              <DropdownToggle caret>Options</DropdownToggle>
+              <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
+                Options
+              </DropdownToggle>
               <DropdownMenu>
                 {dropdownOptions.map((option, i) => (
                   <DropdownItem
@@ -83,6 +85,28 @@ const ExamPage1Content = ({ lv1Urls }) => {
             </span>
           </div>
         ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          alignItems: "center",
+        }}
+      >
+        <Button
+          style={{
+            backgroundColor: "#FF0000",
+            width: "300px",
+            height: "100px",
+            marginRight: "25px",
+            marginTop: "80px",
+            marginBottom: "40px",
+            position: "relative",
+          }}
+        >
+          <h4>Continue to Exam Page 2</h4>
+        </Button>
+        <br />
       </div>
     </div>
   );
