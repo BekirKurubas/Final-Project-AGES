@@ -9,6 +9,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import StartExamPage from "./Pages/StartExamPage";
 import ExamPage1 from "./Pages/ExamPage1";
 import ExamPage2 from "./Pages/ExamPage2";
+import ExamPage3 from "./Pages/ExamPage3";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/start-exam" element={<StartExamPage />} />
         <Route path="/exam-page-1" element={<ExamPage1 />} />
         <Route path="/exam-page-2" element={<ExamPage2 />} />
+        <Route path="/exam-page-3" element={<ExamPage3 />} />
       </Routes>
     </div>
   );
