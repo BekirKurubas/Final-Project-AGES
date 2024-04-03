@@ -6,20 +6,14 @@ import {
   DropdownItem,
   Button,
 } from "reactstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const ExamPage1 = ({ lv1Urls, startTimer }) => {
-  const [selectedOptions, setSelectedOptions] = useState(() => {
-    const storedOptions = localStorage.getItem("selectedOptions");
-    return storedOptions ? JSON.parse(storedOptions) : Array(5).fill(null);
-  });
-
+const ExamPage1Content = ({ lv1Urls, startTimer }) => {
+  const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null));
   const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false));
-  const [remainingTime, setRemainingTime] = useState(() => {
-    const storedTime = localStorage.getItem("remainingTime");
-    return storedTime ? parseInt(storedTime) : 5400;
-  });
+  const [remainingTime, setRemainingTime] = useState(5400); // 90 dakika
   const [timerRunning, setTimerRunning] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -36,16 +30,6 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
 
     return () => clearInterval(timer);
   }, [timerRunning]);
-
-  useEffect(() => {
-    if (!timerRunning && remainingTime > 0) {
-      setTimerRunning(true);
-    }
-  }, [remainingTime, timerRunning]);
-
-  useEffect(() => {
-    localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
-  }, [selectedOptions]);
 
   const toggleDropdown = (index) => {
     const updatedDropdownOpen = [...dropdownOpen];
@@ -71,19 +55,9 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  useEffect(() => {
-    const storedTime = localStorage.getItem("remainingTime");
-    if (storedTime) {
-      setRemainingTime(parseInt(storedTime));
-      setTimerRunning(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (timerRunning) {
-      localStorage.setItem("remainingTime", remainingTime.toString());
-    }
-  }, [remainingTime, timerRunning]);
+  const handleContinueToExamPage2 = () => {
+    navigate("/exam-page-2");
+  };
 
   return (
     <div>
@@ -100,17 +74,10 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
         }}
       >
         Time{"  "}
-        {!timerRunning ? (
-          <Button color="primary" onClick={() => startTimer(90 * 60)}>
-            Start Exam
-          </Button>
-        ) : (
-          formatTime(remainingTime)
-        )}
+        {formatTime(remainingTime)}
       </div>
 
       <div style={{ marginTop: "100px", marginBottom: "50px" }}>
-        {" "}
         <div
           style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
         >
@@ -139,7 +106,7 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
                 marginTop: "50px",
               }}
             >
-              <h4 style={{ marginRight: "10px" }}>{[index + 1]})</h4>
+              <h4 style={{ marginRight: "10px" }}>{index + 1})</h4>
               <Dropdown
                 isOpen={dropdownOpen[index]}
                 toggle={() => toggleDropdown(index)}
@@ -149,7 +116,7 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
                   Options
                 </DropdownToggle>
                 <DropdownMenu>
-                  {dropdownOptions.map((option, i) => (
+                  {dropdownOptions.map((option) => (
                     <DropdownItem
                       key={option}
                       onClick={() => handleOptionSelect(option, index)}
@@ -163,7 +130,7 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
                 </DropdownMenu>
               </Dropdown>
               <span style={{ marginLeft: "10px" }}>
-                <b>Answer : ( {selectedOptions[index]} )</b>
+                <b>Answer : ({selectedOptions[index]})</b>
               </span>
             </div>
           ))}
@@ -187,6 +154,7 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
               marginBottom: "40px",
               position: "relative",
             }}
+            onClick={handleContinueToExamPage2}
           >
             <h4>Continue to Exam Page 2</h4>
           </Button>
@@ -197,4 +165,4 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
   );
 };
 
-export default ExamPage1;
+export default ExamPage1Content;
