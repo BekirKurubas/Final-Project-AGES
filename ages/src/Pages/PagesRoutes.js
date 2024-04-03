@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import LoginRegisterPage from "./LoginRegisterPage";
@@ -18,6 +18,22 @@ function PagesRoutes() {
     "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Lesen-Verstehen-1.2_page-0001.jpg",
   ];
 
+  // remainingTime ve timerRunning state'lerini tanımlayın
+  const [remainingTime, setRemainingTime] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
+
+  // Değişkenlerin kullanım yerlerini ekleyin
+  useEffect(() => {
+    // remainingTime veya timerRunning kullanıldığında yapılacak işlemler
+  }, [remainingTime, timerRunning]);
+
+  const handleStartExam = () => {
+    // Zamanlayıcıyı başlatmak için remainingTime state'ini başlangıç değeriyle güncelle
+    setRemainingTime(5400);
+    // TimerRunning state'ini true olarak ayarla
+    setTimerRunning(true);
+  };
+
   return (
     <div>
       <Routes>
@@ -26,7 +42,10 @@ function PagesRoutes() {
         <Route path="/Telc" element={<TelcPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/start-exam" element={<StartExamPage />} />
+        <Route
+          path="/start-exam"
+          element={<StartExamPage startTimer={handleStartExam} />}
+        />
         <Route path="/exam-page-1" element={<ExamPage1 lv1Urls={lv1Urls} />} />
         <Route path="/exam-page-2" element={<ExamPage2 />} />
         <Route path="/exam-page-3" element={<ExamPage3 />} />

@@ -2,7 +2,12 @@ import React from "react";
 import { Button } from "reactstrap";
 import { Link } from "react-router-dom";
 
-const StartExamPageContent = () => {
+const StartExamPageContent = ({ startTimer }) => {
+  const handleStartExam = () => {
+    // Zamanlayıcıyı başlatmak için startTimer fonksiyonunu çağır
+    startTimer();
+  };
+
   return (
     <div>
       <div className="container-fluid">
@@ -46,6 +51,7 @@ const StartExamPageContent = () => {
                     height: "100px",
                     marginBottom: "20px",
                   }}
+                  onClick={handleStartExam}
                 >
                   <span style={{ color: "white" }}>START</span>
                 </Button>

@@ -3,11 +3,11 @@ import StartExamPageHeader from "../components/StartExam Component/StartExamPage
 import StartExamPageContent from "../components/StartExam Component/StartExamPageContent";
 import Footer from "../components/ConstantComponent/Footer";
 
-const StartExamPage = () => {
+const StartExamPage = ({ startTimer }) => {
   return (
     <div>
       <StartExamPageHeader />
-      <StartExamPageContent />
+      <StartExamPageContent startTimer={startTimer} />
       <Footer />
     </div>
   );

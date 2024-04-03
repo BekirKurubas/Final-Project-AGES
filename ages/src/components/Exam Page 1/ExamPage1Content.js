@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Dropdown,
   DropdownToggle,
@@ -6,10 +6,46 @@ import {
   DropdownItem,
   Button,
 } from "reactstrap";
+import { Link } from "react-router-dom";
 
-const ExamPage1Content = ({ lv1Urls }) => {
-  const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null));
+const ExamPage1 = ({ lv1Urls, startTimer }) => {
+  const [selectedOptions, setSelectedOptions] = useState(() => {
+    const storedOptions = localStorage.getItem("selectedOptions");
+    return storedOptions ? JSON.parse(storedOptions) : Array(5).fill(null);
+  });
+
   const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false));
+  const [remainingTime, setRemainingTime] = useState(() => {
+    const storedTime = localStorage.getItem("remainingTime");
+    return storedTime ? parseInt(storedTime) : 5400;
+  });
+  const [timerRunning, setTimerRunning] = useState(false);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setRemainingTime((prevTime) => {
+        if (prevTime === 0) {
+          clearInterval(timer);
+          setTimerRunning(false);
+          return 0;
+        } else {
+          return prevTime - 1;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timerRunning]);
+
+  useEffect(() => {
+    if (!timerRunning && remainingTime > 0) {
+      setTimerRunning(true);
+    }
+  }, [remainingTime, timerRunning]);
+
+  useEffect(() => {
+    localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
+  }, [selectedOptions]);
 
   const toggleDropdown = (index) => {
     const updatedDropdownOpen = [...dropdownOpen];
@@ -29,8 +65,23 @@ const ExamPage1Content = ({ lv1Urls }) => {
     String.fromCharCode(97 + index)
   );
 
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+  };
+
   return (
     <div>
+      <div className="countdown-timer">
+        {!timerRunning ? (
+          <Button color="primary" onClick={startTimer}>
+            Start Exam
+          </Button>
+        ) : (
+          formatTime(remainingTime)
+        )}
+      </div>
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
         {lv1Urls.map((url, index) => (
           <img
@@ -53,7 +104,7 @@ const ExamPage1Content = ({ lv1Urls }) => {
               display: "flex",
               flexDirection: "row",
               alignItems: "center",
-              marginRight: "50px",
+              marginRight: "40px",
               marginTop: "50px",
             }}
           >
@@ -93,23 +144,25 @@ const ExamPage1Content = ({ lv1Urls }) => {
           alignItems: "center",
         }}
       >
-        <Button
-          style={{
-            backgroundColor: "#FF0000",
-            width: "300px",
-            height: "100px",
-            marginRight: "25px",
-            marginTop: "80px",
-            marginBottom: "40px",
-            position: "relative",
-          }}
-        >
-          <h4>Continue to Exam Page 2</h4>
-        </Button>
+        <Link to="/exam-page-2" style={{ color: "white" }}>
+          <Button
+            style={{
+              backgroundColor: "#FF0000",
+              width: "300px",
+              height: "100px",
+              marginRight: "25px",
+              marginTop: "80px",
+              marginBottom: "40px",
+              position: "relative",
+            }}
+          >
+            <h4>Continue to Exam Page 2</h4>
+          </Button>
+        </Link>
         <br />
       </div>
     </div>
   );
 };
 
-export default ExamPage1Content;
+export default ExamPage1;
