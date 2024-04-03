@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const StartExamPageContent = ({ startTimer }) => {
   const handleStartExam = () => {
-    // Zamanlayıcıyı başlatmak için startTimer fonksiyonunu çağır
-    startTimer();
+    localStorage.removeItem("remainingTime");
+    startTimer(90 * 60);
   };
 
   return (

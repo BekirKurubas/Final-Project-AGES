@@ -18,19 +18,14 @@ function PagesRoutes() {
     "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Lesen-Verstehen-1.2_page-0001.jpg",
   ];
 
-  // remainingTime ve timerRunning state'lerini tanımlayın
   const [remainingTime, setRemainingTime] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
 
-  // Değişkenlerin kullanım yerlerini ekleyin
-  useEffect(() => {
-    // remainingTime veya timerRunning kullanıldığında yapılacak işlemler
-  }, [remainingTime, timerRunning]);
+  useEffect(() => {}, [remainingTime, timerRunning]);
 
   const handleStartExam = () => {
-    // Zamanlayıcıyı başlatmak için remainingTime state'ini başlangıç değeriyle güncelle
     setRemainingTime(5400);
-    // TimerRunning state'ini true olarak ayarla
+
     setTimerRunning(true);
   };
 

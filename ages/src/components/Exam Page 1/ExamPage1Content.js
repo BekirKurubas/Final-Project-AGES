@@ -71,11 +71,25 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+  useEffect(() => {
+    const storedTime = localStorage.getItem("remainingTime");
+    if (storedTime) {
+      setRemainingTime(parseInt(storedTime));
+      setTimerRunning(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (timerRunning) {
+      localStorage.setItem("remainingTime", remainingTime.toString());
+    }
+  }, [remainingTime, timerRunning]);
+
   return (
     <div>
       <div className="countdown-timer">
         {!timerRunning ? (
-          <Button color="primary" onClick={startTimer}>
+          <Button color="primary" onClick={() => startTimer(90 * 60)}>
             Start Exam
           </Button>
         ) : (

@@ -15,14 +15,13 @@ const ExamPage1Header = () => {
       >
         <div className="container-fluid">
           <div className="navbar-text mx-auto">
-            <a
+            <div
               className="nav-link active"
               aria-current="page"
-              href="/exam-page-1"
               style={{ color: "#FFFFFF" }}
             >
               <h1>EXAM PAGE -1-</h1>
-            </a>
+            </div>
           </div>
         </div>
       </nav>
