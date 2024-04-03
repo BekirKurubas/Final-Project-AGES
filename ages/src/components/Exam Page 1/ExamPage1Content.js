@@ -87,7 +87,19 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
 
   return (
     <div>
-      <div className="countdown-timer">
+      <div
+        style={{
+          position: "fixed",
+          top: "100px",
+          right: 0,
+          padding: "10px",
+          backgroundColor: "#FF0000",
+          color: "#fff",
+          fontWeight: "bold",
+          width: "110px",
+        }}
+      >
+        Time{"  "}
         {!timerRunning ? (
           <Button color="primary" onClick={() => startTimer(90 * 60)}>
             Start Exam
@@ -96,60 +108,66 @@ const ExamPage1 = ({ lv1Urls, startTimer }) => {
           formatTime(remainingTime)
         )}
       </div>
-      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        {lv1Urls.map((url, index) => (
-          <img
-            key={index}
-            src={url}
-            alt={`Full Screen ${index}`}
-            style={{ width: "50%", height: "auto", maxWidth: "50%" }}
-          />
-        ))}
-      </div>
-      <div
-        className="d-flex p-5"
-        style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
-      >
-        {[...Array(5)].map((_, index) => (
-          <div
-            key={index}
-            className="mr-3 mb-3"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              marginRight: "40px",
-              marginTop: "50px",
-            }}
-          >
-            <h4 style={{ marginRight: "10px" }}>{[index + 1]})</h4>
-            <Dropdown
-              isOpen={dropdownOpen[index]}
-              toggle={() => toggleDropdown(index)}
-              className="custom-dropdown"
+
+      <div style={{ marginTop: "100px", marginBottom: "50px" }}>
+        {" "}
+        <div
+          style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+        >
+          {lv1Urls.map((url, index) => (
+            <img
+              key={index}
+              src={url}
+              alt={`Full Screen ${index}`}
+              style={{ width: "50%", height: "auto", maxWidth: "50%" }}
+            />
+          ))}
+        </div>
+        <div
+          className="d-flex p-5"
+          style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+        >
+          {[...Array(5)].map((_, index) => (
+            <div
+              key={index}
+              className="mr-3 mb-3"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                marginRight: "40px",
+                marginTop: "50px",
+              }}
             >
-              <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
-                Options
-              </DropdownToggle>
-              <DropdownMenu>
-                {dropdownOptions.map((option, i) => (
-                  <DropdownItem
-                    key={option}
-                    onClick={() => handleOptionSelect(option, index)}
-                    disabled={selectedOptions[index] === option}
-                  >
-                    <span>
-                      <b>Answer : {option}</b>
-                    </span>
-                  </DropdownItem>
-                ))}
-              </DropdownMenu>
-            </Dropdown>
-            <span style={{ marginLeft: "10px" }}>
-              <b>Answer : ( {selectedOptions[index]} )</b>
-            </span>
-          </div>
-        ))}
+              <h4 style={{ marginRight: "10px" }}>{[index + 1]})</h4>
+              <Dropdown
+                isOpen={dropdownOpen[index]}
+                toggle={() => toggleDropdown(index)}
+                className="custom-dropdown"
+              >
+                <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
+                  Options
+                </DropdownToggle>
+                <DropdownMenu>
+                  {dropdownOptions.map((option, i) => (
+                    <DropdownItem
+                      key={option}
+                      onClick={() => handleOptionSelect(option, index)}
+                      disabled={selectedOptions[index] === option}
+                    >
+                      <span>
+                        <b>Answer : {option}</b>
+                      </span>
+                    </DropdownItem>
+                  ))}
+                </DropdownMenu>
+              </Dropdown>
+              <span style={{ marginLeft: "10px" }}>
+                <b>Answer : ( {selectedOptions[index]} )</b>
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
       <div
         style={{
