@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 const ExamPage1Content = ({ lv1Urls, startTimer }) => {
   const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null));
   const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false));
-  const [remainingTime, setRemainingTime] = useState(5400); // 90 dakika
+  const [remainingTime, setRemainingTime] = useState(5400); 
   const [timerRunning, setTimerRunning] = useState(false);
   const navigate = useNavigate();
 

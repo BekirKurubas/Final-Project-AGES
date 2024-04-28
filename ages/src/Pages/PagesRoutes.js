@@ -11,6 +11,7 @@ import ExamPage2 from "./ExamPage2";
 import ExamPage3 from "./ExamPage3";
 import ExamPage4 from "./ExamPage4";
 import ExamPage5 from "./ExamPage5";
+import MainLayout from "./pageLayout.js/MainLayout";
 
 function PagesRoutes() {
   const lv1Urls = [
@@ -37,20 +38,28 @@ function PagesRoutes() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login-register" element={<LoginRegisterPage />} />
-        <Route path="/Telc" element={<TelcPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route
-          path="/start-exam"
-          element={<StartExamPage startTimer={handleStartExam} />}
-        />
-        <Route path="/exam-page-1" element={<ExamPage1 lv1Urls={lv1Urls} />} />
-        <Route path="/exam-page-2" element={<ExamPage2 lv2Urls={lv2Urls} />} />
-        <Route path="/exam-page-3" element={<ExamPage3 />} />
-        <Route path="/exam-page-4" element={<ExamPage4 />} />
-        <Route path="/exam-page-5" element={<ExamPage5 />} />
+        <Route path="/" element={<MainLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/login-register" element={<LoginRegisterPage />} />
+          <Route path="/Telc" element={<TelcPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route
+            path="/start-exam"
+            element={<StartExamPage startTimer={handleStartExam} />}
+          />
+          <Route
+            path="/exam-page-1"
+            element={<ExamPage1 lv1Urls={lv1Urls} />}
+          />          
+          <Route
+            path="/exam-page-2"
+            element={<ExamPage2 lv2Urls={lv2Urls} />}
+          />
+          <Route path="/exam-page-3" element={<ExamPage3 />} />
+          <Route path="/exam-page-4" element={<ExamPage4 />} />
+          <Route path="/exam-page-5" element={<ExamPage5 />} />
+        </Route>
       </Routes>
     </div>
   );
