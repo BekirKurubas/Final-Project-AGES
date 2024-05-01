@@ -8,7 +8,6 @@ const ExamPage3 = () => {
     <div>
       <ExamPage3Header />
       <ExamPage3Content />
-      <Footer />
     </div>
   );
 };
