@@ -8,7 +8,6 @@ const ExamPage2 = ({ lv2Urls }) => {
     <div>
       <ExamPage2Header />
       <ExamPage2Content lv2Urls={lv2Urls} />
-      <Footer />
     </div>
   );
 };
