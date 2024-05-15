@@ -24,6 +24,11 @@ function PagesRoutes() {
     "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Lesen-Verstehen-2.2_page-0001.jpg",
   ];
 
+  const lv3Urls = [
+    "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Lesen-Verstehen-3.1_page-0001.jpg",
+    "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Lesen-Verstehen-3.2_page-0001.jpg",
+  ];
+
   const [remainingTime, setRemainingTime] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
 
@@ -56,7 +61,9 @@ function PagesRoutes() {
             path="/exam-page-2"
             element={<ExamPage2 lv2Urls={lv2Urls} />}
           />
-          <Route path="/exam-page-3" element={<ExamPage3 />} />
+          <Route path="/exam-page-3" 
+          element={<ExamPage3 lv3Urls={lv3Urls}/>} />
+          
           <Route path="/exam-page-4" element={<ExamPage4 />} />
           <Route path="/exam-page-5" element={<ExamPage5 />} />
         </Route>

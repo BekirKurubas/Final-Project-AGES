@@ -134,7 +134,7 @@ const ExamPage2Content = ({ lv2Urls, startTimer }) => {
                 marginTop: "50px",
               }}
             >
-              <h4 style={{ marginRight: "10px" }}>{[index + 6]})</h4>
+              <h4 style={{ marginRight: "10px" }}>{[index + 6]}</h4>
               <Dropdown
                 isOpen={dropdownOpen[index]}
                 toggle={() => toggleDropdown(index)}

@@ -56,6 +56,7 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
   };
 
   const handleContinueToExamPage2 = () => {
+    
     navigate("/exam-page-2");
   };
 

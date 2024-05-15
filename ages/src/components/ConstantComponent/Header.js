@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FaHome } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -67,31 +69,14 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <div className="d-flex justify-content-end">
+          <main className="d-flex justify-content-end">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <Link
-                  to="/login-register"
-                  className="nav-link btn btn-primary"
-                  style={{
-                    backgroundColor: "white",
-                    borderWidth: "2px",
-                    borderStyle: "solid",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.target.style.backgroundColor = "blue";
-                    e.target.style.color = "white";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.target.style.backgroundColor = "white";
-                    e.target.style.color = "";
-                  }}
-                >
-                  <b>Let's try Model Test</b>
-                </Link>
+                <LoginButton />
+                <LogoutButton />
               </li>
             </ul>
-          </div>
+          </main>
         </div>
       </div>
     </nav>

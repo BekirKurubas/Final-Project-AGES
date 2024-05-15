@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const StartExamPageContent = ({ startTimer }) => {
   const handleStartExam = () => {
     localStorage.removeItem("remainingTime");
+    // TODO this one restarts it all the time
     startTimer(90 * 60);
   };
 
