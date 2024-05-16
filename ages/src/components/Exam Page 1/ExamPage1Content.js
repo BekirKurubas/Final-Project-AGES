@@ -6,14 +6,20 @@ import {
   DropdownItem,
   Button,
 } from "reactstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,} from "react-router-dom";
 
 const ExamPage1Content = ({ lv1Urls, startTimer }) => {
-  const [selectedOptions, setSelectedOptions] = useState(Array(5).fill(null));
+  const [selectedOptions, setSelectedOptions] = useState(() => {
+    const storedOptions = localStorage.getItem("selectedOptions");
+    return storedOptions ? JSON.parse(storedOptions) : Array(5).fill(null);
+  });
+
   const [dropdownOpen, setDropdownOpen] = useState(Array(5).fill(false));
-  const [remainingTime, setRemainingTime] = useState(5400); 
+  const [remainingTime, setRemainingTime] = useState(() => {
+    const storedTime = localStorage.getItem("remainingTime");
+    return storedTime ? parseInt(storedTime) : 5400;
+  });
   const [timerRunning, setTimerRunning] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -30,6 +36,12 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
 
     return () => clearInterval(timer);
   }, [timerRunning]);
+
+  useEffect(() => {
+    if (!timerRunning && remainingTime > 0) {
+      setTimerRunning(true);
+    }
+  }, [remainingTime, timerRunning]);
 
   const toggleDropdown = (index) => {
     const updatedDropdownOpen = [...dropdownOpen];
@@ -55,10 +67,7 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  const handleContinueToExamPage2 = () => {
-    
-    navigate("/exam-page-2");
-  };
+  
 
   return (
     <div>
@@ -155,7 +164,7 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
               marginBottom: "40px",
               position: "relative",
             }}
-            onClick={handleContinueToExamPage2}
+            
           >
             <h4>Continue to Exam Page 2</h4>
           </Button>
