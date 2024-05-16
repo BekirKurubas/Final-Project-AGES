@@ -33,6 +33,10 @@ function PagesRoutes() {
     "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Sprachbausteine-1_page-0001.jpg",
   ];
 
+  const sb2Urls = [
+    "https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Sprachbausteine-2_page-0001.jpg",
+  ];
+
   const [remainingTime, setRemainingTime] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
 
@@ -71,7 +75,8 @@ function PagesRoutes() {
           <Route path="/exam-page-4" 
           element={<ExamPage4 sb1Urls={sb1Urls}/>} />
 
-          <Route path="/exam-page-5" element={<ExamPage5 />} />
+          <Route path="/exam-page-5" 
+          element={<ExamPage5 sb2Urls={sb2Urls}/>} />
         </Route>
       </Routes>
     </div>

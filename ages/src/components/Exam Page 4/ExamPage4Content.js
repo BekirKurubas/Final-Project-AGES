@@ -182,7 +182,7 @@ const ExamPage4Content = ({ sb1Urls = [], startTimer }) => {
             alignItems: "center",
           }}
         >
-          <Link to="/exam-page-2" style={{ color: "white" }}>
+          <Link to="/exam-page-3" style={{ color: "white" }}>
             <Button
               style={{
                 backgroundColor: "#FF0000",
@@ -205,7 +205,7 @@ const ExamPage4Content = ({ sb1Urls = [], startTimer }) => {
             alignItems: "center",
           }}
         >
-          <Link to="/exam-page-4" style={{ color: "white" }}>
+          <Link to="/exam-page-5" style={{ color: "white" }}>
             <Button
               style={{
                 backgroundColor: "#FF0000",
