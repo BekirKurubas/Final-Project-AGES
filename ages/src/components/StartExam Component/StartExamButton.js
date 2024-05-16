@@ -25,7 +25,7 @@ const StartExamButton = () => {
                 },
             });
             console.log(response)
-            navigate('/start-exam-page');
+            navigate('/start-exam');
             // Handle response data as needed
         } catch (error) {
             console.error("There was a problem with the fetch operation:", error);
