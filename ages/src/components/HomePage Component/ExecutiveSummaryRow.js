@@ -6,12 +6,13 @@ const ExecutiveSummaryRow = () => {
           <div
             style={{
               padding: "10px",
-              fontSize: "16px",
+              fontSize: "30px",
               whiteSpace: "pre-line",
               marginTop: "20px",
             }}
           >
-            <h1>Executive Summary</h1>
+            <h1 style={{fontSize:"50px"}}>Executive Summary</h1>
+            <br></br>
             <p>
               The Amazing German Exam Simulation (AGES) project aims to provide
               users with a comprehensive and user-friendly web application to

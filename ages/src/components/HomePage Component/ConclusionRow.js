@@ -15,15 +15,16 @@ const ConclusionRow = () => {
           <div
             style={{
               padding: "10px",
-              fontSize: "23x",
+              fontSize: "30px",
               whiteSpace: "pre-line",
               marginBottom: "120px",
             }}
           >
-            <h1>Conclusion</h1>
+            <h1 style={{fontSize:"50px"}}>Conclusion</h1>
+            <br></br>
             <p>
               In conclusion, the Amazing German Exam Simulation (AGES) project
-              aims to revolutionize B1 Telc GermanExam preparation by providing
+              aims to revolutionize B1 Telc German Exam preparation by providing
               an engaging, realistic, and efficient simulation of the exam. With
               a focus on user experience and comprehensive practice, AGES
               endeavors to be the go-to platform for individuals aiming for

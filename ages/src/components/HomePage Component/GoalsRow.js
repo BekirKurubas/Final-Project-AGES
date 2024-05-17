@@ -15,11 +15,12 @@ const HomePageGoalsRow = () => {
           <div
             style={{
               padding: "10px",
-              fontSize: "13px",
+              fontSize: "23px",
               whiteSpace: "pre-line",
             }}
           >
-            <h1>Goals</h1>
+            <h1 style={{fontSize:"50px"}}>Goals</h1>
+            <br></br>
             <p>
               · Effective Exam Simulation: AGES aims to provide users with a
               realistic simulation of the B1 Deutsch Telc Prüfung, ensuring that
