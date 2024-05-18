@@ -16,11 +16,16 @@ const LevelB1Row = () => {
             padding: "10px",
             fontSize: "13px",
             whiteSpace: "pre-line",
+            marginTop: "20px",
           }}
         >
-          <h1>The CEFR level B1</h1>
+          <h1 style={{
+              fontSize: "50px",
+            }}>The CEFR level B1</h1>
           <br />
-          <p>
+          <p style={{
+              fontSize: "27px",
+            }}>
             Learners at B1 level can communicate in a simple and coherent way in
             daily life, at work, and when travelling write or speak about a
             range of topics in their own area of interest. participate in

@@ -12,13 +12,15 @@ const WhyTelcRow = () => {
         >
           <h1
             style={{
-              fontSize: "30px",
+              fontSize: "50px",
             }}
           >
             Why to be choosed <br /> a Telc language test?
           </h1>
           <br />
-          <p>
+          <p style={{
+              fontSize: "25px",
+            }}>
             Telc language tests are recognised worldwide by schools,
             universities, employers and government authorities as valid proof of
             language proficiency at all six levels of the Common European
@@ -47,7 +49,7 @@ const WhyTelcRow = () => {
             <img
               src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/smile.jpg"
               alt="smile"
-              style={{ width: "100%", height: "280px" }}
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
         </div>

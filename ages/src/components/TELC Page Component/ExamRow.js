@@ -12,13 +12,15 @@ const ExamRow = () => {
         >
           <h1
             style={{
-              fontSize: "31px",
+              fontSize: "50px",
             }}
           >
             Telc German Examinations
           </h1>
           <br />
-          <p>
+          <p style={{
+              fontSize: "19px",
+            }}>
             Telc offers a wide range of language certificates from A1 to C2 to
             help you demonstrate language ability in any situation. telc German
             examinations address different target groups at different stages of
@@ -42,7 +44,7 @@ const ExamRow = () => {
             <img
               src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/telc2.png"
               alt="telc 2"
-              style={{ width: "100%", height: "290px" }}
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
         </div>
