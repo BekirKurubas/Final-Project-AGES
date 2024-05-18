@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaHome } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { useAuth0 } from "@auth0/auth0-react"; 
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showStartExamButton, setShowStartExamButton] = useState(true);
+  const [showStartExamButton, setShowStartExamButton] = useState(true); // State to manage the visibility of the Start Exam button
   const { isAuthenticated, logout } = useAuth0(); // Getting authentication status and logout function
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -17,8 +19,18 @@ const Header = () => {
   };
 
   const handleStartExamClick = () => {
-    setShowStartExamButton(false);
+    setShowStartExamButton(false); // Hide the button when clicked
+    navigate("/start-exam"); // Programmatically navigate to "/start-exam" page
   };
+
+  useEffect(() => {
+    // Show the button on the home page and /Telc page
+    if (location.pathname === "/" || location.pathname === "/Telc") {
+      setShowStartExamButton(true);
+    } else {
+      setShowStartExamButton(false);
+    }
+  }, [location]);
 
   return (
     <nav className="navbar navbar-expand-md bg-white">
@@ -81,8 +93,7 @@ const Header = () => {
               {isAuthenticated ? (
                 <div className="d-flex align-items-center">
                   {showStartExamButton && (
-                    <Link
-                      to="start-exam"
+                    <button
                       className="nav-link btn btn-primary me-2"
                       onClick={handleStartExamClick}
                       style={{
@@ -92,7 +103,7 @@ const Header = () => {
                       }}
                     >
                       <b>Start Exam</b>
-                    </Link>
+                    </button>
                   )}
                   <button
                     className="nav-link btn btn-primary"

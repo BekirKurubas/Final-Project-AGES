@@ -15,7 +15,7 @@ const LoginButton = () => {
           textAlign: "center",
         }}
       >
-        <p style={{ fontSize: "3em" }}>Try Your German Knowledge!</p>
+        <p style={{ fontSize: "40px" }}>Try Your German Knowledge!</p>
 
         {!isAuthenticated && (
           <button
