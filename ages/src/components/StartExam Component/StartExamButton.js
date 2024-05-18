@@ -37,14 +37,14 @@ const StartExamButton = () => {
         isAuthenticated && (
             // <Link to="/start-exam" style={{ color: "white" }}>
             <button
-                className="btn btn-primary btn-lg"
+                className="btn btn-primary"
                 type="submit"
                 onClick={handleSubmit}
                 style={{
-                    marginBottom: "10px",
-                    width: "100%",
+                    marginTop: "50px",
+                    width: "220px",
                     backgroundColor: "red",
-                }}>
+                  }}>
                 Start Exam
             </button>
             // </Link >

@@ -1,6 +1,7 @@
 import React from "react";
+import LogoutButton from "../ConstantComponent/LogoutButton";
 
-const LoginRegisterHeader = () => {
+const LoginHeader = () => {
   
   return (
     <div>      
@@ -25,9 +26,10 @@ const LoginRegisterHeader = () => {
             </a>
           </div>
         </div>
+        <LogoutButton/>
       </nav>
     </div>
   );
 };
 
-export default LoginRegisterHeader;
+export default LoginHeader;

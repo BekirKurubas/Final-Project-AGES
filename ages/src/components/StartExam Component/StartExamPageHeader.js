@@ -24,7 +24,7 @@ const StartExamPageHeader = () => {
               <h1>Start Exam</h1>
             </a>
           </div>
-        </div>
+        </div>    
       </nav>
     </>
   );

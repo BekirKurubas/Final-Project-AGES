@@ -8,15 +8,13 @@ import IconsCardRow from "./IconsCardRow";
 import AufbauRow from "./AufbauRow";
 import ClientRow from "./ClientRow";
 import PersonCardsRow from "./PersonCardsRow";
-import StartExamButton from "../StartExam Component/StartExamButton"
+
 
 const Content = () => {
 
   return (
     <div>
-      <HomePagePictureRow />
-
-      <StartExamButton />
+      <HomePagePictureRow />      
 
       <ExecutiveSummaryRow />
 

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
-import LoginRegisterPage from "./LoginRegisterPage";
 import TelcPage from "./TelcPage";
 import LoginPage from "./LoginPage";
 import RegisterPage from "./RegisterPage";
@@ -52,8 +51,7 @@ function PagesRoutes() {
     <div>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/login-register" element={<LoginRegisterPage />} />
+          <Route index element={<HomePage />} />          
           <Route path="/Telc" element={<TelcPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
