@@ -21,7 +21,7 @@ const LoginRegisterHeader = () => {
               href="/login-register"
               style={{ color: "#FFFFFF" }}
             >
-              <h1>Login / Register</h1>
+              <h1>Login</h1>
             </a>
           </div>
         </div>

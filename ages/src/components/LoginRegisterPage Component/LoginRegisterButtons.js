@@ -11,12 +11,13 @@ const LoginregisterButtons = () => {
           textAlign: "center",
           marginTop: "60px",
           marginBottom: "20px",
+          fontSize:"40px"
         }}
       >
         Try Your German Knowledge!
       </h4>
-      <br />
-      <div className="row">
+      <br /><br />
+      <div className="row justify-content-center">
         <div className="col-md-6">
           <Link to="/login" style={{ color: "white" }}>
             <button
@@ -31,20 +32,7 @@ const LoginregisterButtons = () => {
             </button>
           </Link>
         </div>
-        <div className="col-md-6">
-          <Link to="/register" style={{ color: "white" }}>
-            <button
-              className="btn btn-primary btn-lg"
-              style={{
-                marginBottom: "10px",
-                width: "100%",
-                backgroundColor: "red",
-              }}
-            >
-              Register
-            </button>
-          </Link>
-        </div>
+        
       </div>
     </div>
   );
