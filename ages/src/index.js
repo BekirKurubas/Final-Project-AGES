@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 // import * as serviceWorker from "./serviceWorker";
 import { Auth0Provider } from "@auth0/auth0-react";
-import history from "./utils/history";
 import { BrowserRouter } from "react-router-dom";
 
 // const onRedirectCallback = (appState) => {
@@ -28,22 +27,23 @@ const root = createRoot(document.getElementById('root'));
 //   // },
 // };
 
-const domain = process.env.REACT_APP_AUTH0_DOMAIN;
-const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID;
-
+console.log(`https://${process.env.REACT_APP_AUTH0_DOMAIN}/api/v2/`)
 root.render(
   <Auth0Provider
     domain={process.env.REACT_APP_AUTH0_DOMAIN}
     clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
     authorizationParams={{
-      redirect_uri: window.location.origin
+      redirect_uri: window.location.origin,
+      // audience: `https://${process.env.REACT_APP_AUTH0_AUDIENCE}/api/v2/`, // TODO audience not found but exists... i think it should be this one but maby connect with application?
+      audience: `${process.env.REACT_APP_AUTH0_AUDIENCE}`,
+      scope: "read:messages"
     }}
   >
     <BrowserRouter>
       <App />
     </BrowserRouter>
-    </Auth0Provider>
-    );
+  </Auth0Provider>
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
