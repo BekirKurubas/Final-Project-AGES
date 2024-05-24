@@ -9,13 +9,13 @@ const StartExamPageContent = ({ startTimer }) => {
 
   const handleStartExam = async (e) => {
     localStorage.removeItem("remainingTime");
+    localStorage.removeItem("selectedOptions")
     startTimer(90 * 60);
     e.preventDefault();
     console.log("handleSubmit Start Exam")
 
     try {
       const token = await getAccessTokenSilently();
-      console.log(token)
       const response = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/exam`, {
         method: "Post",
         headers: {
@@ -24,10 +24,21 @@ const StartExamPageContent = ({ startTimer }) => {
           // Add any additional headers if needed
         },
       });
-      console.log(response)
-      navigate('/exam-page-1');
+      console.log(response.status)
+      if (response.ok) {
+        const exam = await response.json()
+        sessionStorage.setItem('examId', exam.id);
+        // console.log(sessionStorage.getItem('examId'));
+        navigate('/exam-page-1');
+      } else if (response.status === 400 && !!sessionStorage.getItem('examId')) {
+        console.log("User already has an exam")
+        navigate('/exam-page-1');
+      } else {
+        navigate('/start-exam');
+      }
       // Handle response data as needed
     } catch (error) {
+      console.log("WHY")
       console.error("There was a problem with the fetch operation:", error);
       // Handle error
     }
