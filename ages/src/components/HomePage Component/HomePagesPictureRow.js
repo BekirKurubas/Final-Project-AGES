@@ -9,7 +9,7 @@ const HomePagePictureRow = () => {
       }}
     >
       <img
-        src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/AGES.png"
+        src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Ages-Homepage-Image.png"
         alt="AGES"
         style={{ marginTop: "0px", width: "100%", height: "auto" }}
       />
