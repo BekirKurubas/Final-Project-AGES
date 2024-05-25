@@ -1,6 +1,6 @@
 import React from "react";
-import ExamPage3Header from "../components/Exam Page 3/ExamPage3Header";
-import ExamPage3Content from "../components/Exam Page 3/ExamPage3Content";
+import ExamPage3Header from "../components/ConstantComponent/Exam/Exam Page 3/ExamPage3Header";
+import ExamPage3Content from "../components/ConstantComponent/Exam/Exam Page 3/ExamPage3Content";
 
 const ExamPage3 = ({ lv3Urls }) => {
   return (

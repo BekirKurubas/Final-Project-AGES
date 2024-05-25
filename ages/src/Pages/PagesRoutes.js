@@ -11,6 +11,7 @@ import ExamPage3 from "./ExamPage3";
 import ExamPage4 from "./ExamPage4";
 import ExamPage5 from "./ExamPage5";
 import MainLayout from "./pageLayout.js/MainLayout";
+import ResultPage from "./ResultPage";
 
 function PagesRoutes() {
   const lv1Urls = [
@@ -75,6 +76,9 @@ function PagesRoutes() {
 
           <Route path="/exam-page-5" 
           element={<ExamPage5 sb2Urls={sb2Urls}/>} />
+
+          <Route path="/result-page" 
+          element={<ResultPage/>} />
         </Route>
       </Routes>
     </div>
