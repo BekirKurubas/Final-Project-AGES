@@ -24,7 +24,7 @@ const ExamPage2Content = ({ lv2Urls, startTimer }) => {
   const [timerRunning, setTimerRunning] = useState(false);
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const navigate = useNavigate();
-  const pageNumber = 2
+  const pageNumber = 2;
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -69,13 +69,10 @@ const ExamPage2Content = ({ lv2Urls, startTimer }) => {
 
   const handleOptionSelect = (option, index) => {
     setSelectedOptions((prevOptions) => {
-      if (!prevOptions.includes(option)) {
-        const updatedOptions = [...prevOptions];
-        updatedOptions[index] = option;
-        localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
-        return updatedOptions;
-      }
-      return prevOptions;
+      const updatedOptions = [...prevOptions];
+      updatedOptions[index] = option;
+      localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
+      return updatedOptions;
     });
   };
 
@@ -170,7 +167,6 @@ const ExamPage2Content = ({ lv2Urls, startTimer }) => {
       console.error("There was a problem with the fetch operation:", error);
     }
   };
-
 
   return (
     isAuthenticated ? (

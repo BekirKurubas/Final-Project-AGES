@@ -24,7 +24,7 @@ const ExamPage4Content = ({ sb1Urls = [], startTimer }) => {
   const [timerRunning, setTimerRunning] = useState(false);
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const navigate = useNavigate();
-  const pageNumber = 4
+  const pageNumber = 4;
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -69,13 +69,10 @@ const ExamPage4Content = ({ sb1Urls = [], startTimer }) => {
 
   const handleOptionSelect = (option, index) => {
     setSelectedOptions((prevOptions) => {
-      if (!prevOptions.includes(option)) {
-        const updatedOptions = [...prevOptions];
-        updatedOptions[index] = option;
-        localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
-        return updatedOptions;
-      }
-      return prevOptions;
+      const updatedOptions = [...prevOptions];
+      updatedOptions[index] = option;
+      localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
+      return updatedOptions;
     });
   };
 
@@ -90,7 +87,7 @@ const ExamPage4Content = ({ sb1Urls = [], startTimer }) => {
   useEffect(() => {
     const storedTime = localStorage.getItem("remainingTime");
     if (storedTime) {
-      setRemainingTime(parseInt(storedTime));
+      setRemainingTime(parseInt(storedTime, 10));
       setTimerRunning(true);
     }
   }, []);
