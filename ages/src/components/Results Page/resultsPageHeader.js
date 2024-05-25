@@ -18,10 +18,10 @@ const ResultPageHeader = () => {
             <a
               className="nav-link active"
               aria-current="page"
-              href="/exam-page-5"
+              href="/result-page"
               style={{ color: "#FFFFFF" }}
             >
-              <h1>EXAM PAGE -5-</h1>
+              <h1>Results</h1>
             </a>
           </div>
         </div>

@@ -180,10 +180,9 @@ const ExamPage5Content = ({ sb2Urls = [], startTimer }) => {
         });
 
         if (responseFinisheExam.ok) {
-          // TODO
           localStorage.removeItem("selectedOptions5")
 
-          navigate(`/start-exam`);
+          navigate(`/result-page`);
         }
 
 
