@@ -39,3 +39,44 @@
     height: auto;
   }
 }
+
+.table-container {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%; /* Tablo genişliği */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+td.result {
+  font-weight: bold;
+}
+
+.correct {
+  color: #28a745;
+}
+
+.incorrect {
+  color: #dc3545;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 10px;
+}

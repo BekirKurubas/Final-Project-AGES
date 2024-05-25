@@ -69,13 +69,12 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
 
   const handleOptionSelect = (option, index) => {
     setSelectedOptions((prevOptions) => {
-      if (!prevOptions.includes(option)) {
-        const updatedOptions = [...prevOptions];
+      const updatedOptions = [...prevOptions];
+      if (option !== "X") { // "X" seçeneği hariç, mevcut seçenekleri değiştir
         updatedOptions[index] = option;
         localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
-        return updatedOptions;
       }
-      return prevOptions;
+      return updatedOptions;
     });
   };
 
@@ -226,7 +225,7 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
                   marginTop: "60px",
                 }}
               >
-                <h4 style={{ marginRight: "10px" }}>{[index + 11]}</h4>
+                <h4 style={{ marginRight: "10px" }}>{index + 11}</h4>
                 <Dropdown
                   isOpen={dropdownOpen[index]}
                   toggle={() => toggleDropdown(index)}
@@ -330,3 +329,4 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
 };
 
 export default ExamPage3Content;
+
