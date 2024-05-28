@@ -24,7 +24,7 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
   const [timerRunning, setTimerRunning] = useState(false);
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
   const navigate = useNavigate();
-  const pageNumber = 3
+  const pageNumber = 3;
   const intervalRef = useRef(null);
 
   useEffect(() => {
@@ -70,10 +70,15 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
   const handleOptionSelect = (option, index) => {
     setSelectedOptions((prevOptions) => {
       const updatedOptions = [...prevOptions];
-      if (option !== "X") { // "X" seçeneği hariç, mevcut seçenekleri değiştir
-        updatedOptions[index] = option;
-        localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
+      if (option !== "X") {
+        const prevIndex = updatedOptions.findIndex((opt) => opt === option);
+        if (prevIndex !== -1) {
+          updatedOptions[prevIndex] = null;
+        }
       }
+      updatedOptions[index] = option;
+
+      localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
       return updatedOptions;
     });
   };
@@ -100,7 +105,7 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
     }
   }, [remainingTime, timerRunning]);
 
- const fetchSavedAnswers = async () => {
+  const fetchSavedAnswers = async () => {
     try {
       localStorage.removeItem("selectedOptions");
 
@@ -170,6 +175,10 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
     }
   };
 
+  const getDisabledOptions = (currentIndex) => {
+    return selectedOptions
+      .filter((option, index) => option && option !== "X" && index !== currentIndex);
+  };
 
   return (
     isAuthenticated ? (
@@ -211,59 +220,86 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
           </div>
           <div
             className="d-flex p-5 "
-            style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
-          >
-            {[...Array(10)].map((_, index) => (
-              <div
-                key={index}
-                className="mr-3 mb-3"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                  marginRight: "50px",
-                  marginTop: "60px",
-                }}
-              >
-                <h4 style={{ marginRight: "10px" }}>{index + 11}</h4>
-                <Dropdown
-                  isOpen={dropdownOpen[index]}
-                  toggle={() => toggleDropdown(index)}
-                  className="custom-dropdown"
+            style={{ display: "flex",
+            flexDirection: "row", flexWrap: "wrap" }}
+            >
+              {[...Array(10)].map((_, index) => (
+                <div
+                  key={index}
+                  className="mr-3 mb-3"
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                    marginRight: "50px",
+                    marginTop: "60px",
+                  }}
                 >
-                  <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
-                    Options
-                  </DropdownToggle>
-                  <DropdownMenu>
-                    {dropdownOptions.map((option, i) => (
-                      <DropdownItem
-                        key={option}
-                        onClick={() => handleOptionSelect(option, index)}
-                        disabled={selectedOptions[index] === option}
-                      >
-                        <span>
-                          <b>Answer : {option}</b>
-                        </span>
-                      </DropdownItem>
-                    ))}
-                  </DropdownMenu>
-                </Dropdown>
-                <span style={{ marginLeft: "10px" }}>
-                  <b>Answer : ({selectedOptions[index]})</b>
-                </span>
-              </div>
-            ))}
+                  <h4 style={{ marginRight: "10px" }}>{index + 11}</h4>
+                  <Dropdown
+                    isOpen={dropdownOpen[index]}
+                    toggle={() => toggleDropdown(index)}
+                    className="custom-dropdown"
+                  >
+                    <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
+                      Options
+                    </DropdownToggle>
+                    <DropdownMenu>
+                      {dropdownOptions.map((option) => (
+                        <DropdownItem
+                          key={option}
+                          onClick={() => handleOptionSelect(option, index)}
+                          style={{
+                            color: getDisabledOptions(index).includes(option) && option !== selectedOptions[index] ? 'gray' : 'black'
+                          }}
+                        >
+                          <span>
+                            <b>Answer : {option}</b>
+                          </span>
+                        </DropdownItem>
+                      ))}
+                    </DropdownMenu>
+                  </Dropdown>
+                  <span style={{ marginLeft: "10px" }}>
+                    <b>Answer : ({selectedOptions[index]})</b>
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div
-            style={{
-              justifyContent: "flex-end",
-              alignItems: "center",
-            }}
-          >
-            <Link to="/exam-page-2" style={{ color: "white" }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div
+              style={{
+                justifyContent: "flex-end",
+                alignItems: "center",
+              }}
+            >
+              <Link to="/exam-page-2" style={{ color: "white" }}>
+                <Button
+                  style={{
+                    backgroundColor: "#FF0000",
+                    width: "300px",
+                    height: "100px",
+                    marginRight: "25px",
+                    marginTop: "80px",
+                    marginBottom: "40px",
+                    position: "relative",
+                  }}
+                >
+                  <h4>Back to Exam Page 2</h4>
+                </Button>
+              </Link>
+              <br />
+            </div>
+            <div
+              style={{
+                justifyContent: "flex-start",
+                alignItems: "center",
+              }}
+            >
               <Button
+                type="submit"
+                onClick={handleSubmit}
                 style={{
                   backgroundColor: "#FF0000",
                   width: "300px",
@@ -274,59 +310,34 @@ const ExamPage3Content = ({ lv3Urls = [], startTimer }) => {
                   position: "relative",
                 }}
               >
-                <h4>Back to Exam Page 2</h4>
+                <h4>Continue to Exam Page 4</h4>
               </Button>
-            </Link>
-            <br />
-          </div>
-          <div
-            style={{
-              justifyContent: "flex-start",
-              alignItems: "center",
-            }}
-          >
-            <Button
-              type="submit"
-              onClick={handleSubmit}
-              style={{
-                backgroundColor: "#FF0000",
-                width: "300px",
-                height: "100px",
-                marginRight: "25px",
-                marginTop: "80px",
-                marginBottom: "40px",
-                position: "relative",
-              }}
-            >
-              <h4>Continue to Exam Page 4</h4>
-            </Button>
-            <br />
+              <br />
+            </div>
           </div>
         </div>
-      </div>
-    ) : (<div>
-      <div className="container-fluid">
-        <div className="row">
-          <div className="col-md-6 mb-4">
-            <div
-              style={{
-                paddingTop: "80px",
-                fontSize: "16px",
-                whiteSpace: "pre-line",
-                marginLeft: "40px",
-              }}
-            >
-              <h3 style={{ marginBottom: "25px" }}>
-                <b>You have to be logged in to start the exam</b>
-              </h3>
+      ) : (<div>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-6 mb-4">
+              <div
+                style={{
+                  paddingTop: "80px",
+                  fontSize: "16px",
+                  whiteSpace: "pre-line",
+                  marginLeft: "40px",
+                }}
+              >
+                <h3 style={{ marginBottom: "25px" }}>
+                  <b>You have to be logged in to start the exam</b>
+                </h3>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    )
-  );
-};
-
-export default ExamPage3Content;
-
+      )
+    );
+  };
+  
+  export default ExamPage3Content;

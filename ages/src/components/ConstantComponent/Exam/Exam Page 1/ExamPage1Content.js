@@ -64,13 +64,10 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
 
   const handleOptionSelect = (option, index) => {
     setSelectedOptions((prevOptions) => {
-      if (!prevOptions.includes(option)) {
-        const updatedOptions = [...prevOptions];
-        updatedOptions[index] = option;
-        localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
-        return updatedOptions;
-      }
-      return prevOptions;
+      const updatedOptions = [...prevOptions];
+      updatedOptions[index] = option;
+      localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
+      return updatedOptions;
     });
   };
 
@@ -101,14 +98,8 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
           const data = await response.json();
           if (data.length === 0) return;
           const savedAnswers = data.map((d) => d.answer);
-          setSelectedOptions((prevOptions) => {
-            const updatedOptions = [...prevOptions];
-            savedAnswers.forEach((answer, index) => {
-              updatedOptions[index] = answer;
-            });
-            localStorage.setItem("selectedOptions", JSON.stringify(updatedOptions));
-            return updatedOptions;
-          });
+          setSelectedOptions(savedAnswers);
+          localStorage.setItem("selectedOptions", JSON.stringify(savedAnswers));
         } else {
           console.error('Failed to fetch saved answers');
         }
@@ -152,6 +143,10 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
     }
+  };
+
+  const isOptionDisabled = (option) => {
+    return selectedOptions.includes(option);
   };
 
   return (
@@ -201,73 +196,74 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
                 <Dropdown
                   isOpen={dropdownOpen[index]}
                   toggle={() => toggleDropdown(index)}
-                  className="custom-dropdown"
-                >
+                  className="
+                  custom-dropdown"
+                  >
                   <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
-                    Options
+                  Options
                   </DropdownToggle>
                   <DropdownMenu>
-                    {dropdownOptions.map((option) => (
-                      <DropdownItem
-                        key={option}
-                        onClick={() => handleOptionSelect(option, index)}
-                        disabled={selectedOptions[index] === option}
-                      >
-                        <span>
-                          <b>Answer : {option}</b>
-                        </span>
-                      </DropdownItem>
-                    ))}
+                  {dropdownOptions.map((option) => (
+                  <DropdownItem
+                  key={option}
+                  onClick={() => handleOptionSelect(option, index)}
+                  disabled={isOptionDisabled(option)}
+                  >
+                  <span>
+                  <b>Answer : {option}</b>
+                  </span>
+                  </DropdownItem>
+                  ))}
                   </DropdownMenu>
-                </Dropdown>
-                <span style={{ marginLeft: "10px" }}>
+                  </Dropdown>
+                  <span style={{ marginLeft: "10px" }}>
                   <b>Answer : ({selectedOptions[index]})</b>
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-          <Button
-            type="submit"
-            onClick={handleSubmit}
-            style={{
-              backgroundColor: "#FF0000",
-              width: "300px",
-              height: "100px",
-              marginRight: "25px",
-              marginTop: "80px",
-              marginBottom: "40px",
-              position: "relative",
-            }}
-          >
-            <h4>Continue to Exam Page 2</h4>
-          </Button>
-          <br />
-        </div>
-      </div>) : (
-      <div>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-6 mb-4">
-              <div
-                style={{
+                  </span>
+                  </div>
+                  ))}
+                  </div>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+                  <Button
+                  type="submit"
+                  onClick={handleSubmit}
+                  style={{
+                  backgroundColor: "#FF0000",
+                  width: "300px",
+                  height: "100px",
+                  marginRight: "25px",
+                  marginTop: "80px",
+                  marginBottom: "40px",
+                  position: "relative",
+                  }}
+                  >
+                  <h4>Continue to Exam Page 2</h4>
+                  </Button>
+                  <br />
+                  </div>
+                  </div>) : (
+                  <div>
+                  <div className="container-fluid">
+                  <div className="row">
+                  <div className="col-md-6 mb-4">
+                  <div
+                  style={{
                   paddingTop: "80px",
                   fontSize: "16px",
                   whiteSpace: "pre-line",
                   marginLeft: "40px",
-                }}
-              >
-                <h3 style={{ marginBottom: "25px" }}>
+                  }}
+                  >
+                  <h3 style={{ marginBottom: "25px" }}>
                   <b>You have to be logged in to start the exam</b>
-                </h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
-  );
-}
-
-export default ExamPage1Content;
+                  </h3>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  </div>
+                  )
+                  );
+                  }
+                  
+                  export default ExamPage1Content;

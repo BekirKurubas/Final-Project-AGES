@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
-import '../../../src'; // Importing the CSS file
+import '../../../src'; 
 
 function ResultPageContent() {
   const [data, setData] = useState(null);
