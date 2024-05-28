@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Button } from "reactstrap";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 
 const StartExamPageContent = ({ startTimer }) => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const [imageUrl, setImageUrl] = useState('');
   const navigate = useNavigate();
 
   const handleStartExam = async (e) => {
@@ -28,7 +29,7 @@ const StartExamPageContent = ({ startTimer }) => {
       if (response.ok) {
         const exam = await response.json()
         sessionStorage.setItem('examId', exam.id);
-        // console.log(sessionStorage.getItem('examId'));
+        // TODO delete following 3 lines
         navigate('/exam-page-1');
       } else if (response.status === 400 && !!sessionStorage.getItem('examId')) {
         console.log("User already has an exam")
@@ -38,11 +39,31 @@ const StartExamPageContent = ({ startTimer }) => {
       }
       // Handle response data as needed
     } catch (error) {
-      console.log("WHY")
       console.error("There was a problem with the fetch operation:", error);
       // Handle error
     }
   };
+
+  const [img, setImg] = useState();
+
+  const fetchImage = async () => {
+    console.log(`${process.env.REACT_APP_API_ENDPOINT}/image/b1_low.png`)
+    const res = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/image/b1_low.png`, {
+      method: "Get",
+      headers: {
+        'Content-Type': 'image/jpeg'
+      }
+    });
+    const imageBlob = await res.blob();
+    const imageObjectURL = URL.createObjectURL(imageBlob);
+    setImg(imageObjectURL);
+    console.log(imageObjectURL)
+  };
+
+  useEffect(() => {
+    fetchImage();
+  }, []);
+
 
   return (
     isAuthenticated ? (
@@ -104,15 +125,15 @@ const StartExamPageContent = ({ startTimer }) => {
                     justifyContent: "center",
                   }}
                 >
-                  <img
-                    src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/b1_low.png"
-                    alt="b1exam"
-                    style={{
+                  {img ? (
+                    <img src={img} alt="Fetched from backend" style={{
                       width: "100%",
                       maxWidth: "400px",
                       height: "auto",
-                    }}
-                  />
+                    }} />
+                  ) : (
+                    <p>Loading...</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -147,15 +168,15 @@ const StartExamPageContent = ({ startTimer }) => {
                     justifyContent: "center",
                   }}
                 >
-                  <img
-                    src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/b1_low.png"
-                    alt="b1exam"
-                    style={{
+                  {imageUrl ? (
+                    <img src={img} alt="Fetched from backend" style={{
                       width: "100%",
                       maxWidth: "400px",
                       height: "auto",
-                    }}
-                  />
+                    }} />
+                  ) : (
+                    <p>Loading...</p>
+                  )}
                 </div>
               </div>
             </div>

@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import { Pie } from 'react-chartjs-2';
 import 'chart.js/auto';
-import '../../../src'; 
+import '../../../src';
+import { useNavigate } from 'react-router-dom';
 
 function ResultPageContent() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const navigate = useNavigate();
 
   const fetchSavedAnswers = async () => {
     try {
@@ -23,11 +25,13 @@ function ResultPageContent() {
         });
 
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          navigate('/start-exam')
+          sessionStorage.setItem('examId', undefined);
         }
 
         const data = await response.json();
         setData(data);
+        // sessionStorage.setItem('examId', undefined);
       }
     } catch (error) {
       console.error('Error fetching saved answers:', error);
@@ -130,7 +134,7 @@ function ResultPageContent() {
         <tbody>
           <tr>
             <td style={{ padding: '8px', textAlign: 'center' }}>{totalCorrect}</td>
-            <td style={{ padding: '8px',textAlign: 'center' }}>{totalFalse}</td>
+            <td style={{ padding: '8px', textAlign: 'center' }}>{totalFalse}</td>
             <td style={{ padding: '8px', textAlign: 'center' }}>{totalEmpty}</td>
           </tr>
         </tbody>
