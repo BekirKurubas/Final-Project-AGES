@@ -1,4 +1,18 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const ExamRow = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('telc2.png');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <>
       <div className="col-md-6 mb-5">
@@ -19,8 +33,8 @@ const ExamRow = () => {
           </h1>
           <br />
           <p style={{
-              fontSize: "19px",
-            }}>
+            fontSize: "19px",
+          }}>
             Telc offers a wide range of language certificates from A1 to C2 to
             help you demonstrate language ability in any situation. telc German
             examinations address different target groups at different stages of
@@ -42,7 +56,7 @@ const ExamRow = () => {
         <div className="row">
           <div style={{ padding: "20px" }}>
             <img
-              src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/telc2.png"
+              src={img}
               alt="telc 2"
               style={{ width: "100%", height: "auto" }}
             />

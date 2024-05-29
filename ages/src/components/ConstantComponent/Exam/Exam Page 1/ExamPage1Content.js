@@ -198,72 +198,72 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
                   toggle={() => toggleDropdown(index)}
                   className="
                   custom-dropdown"
-                  >
+                >
                   <DropdownToggle caret style={{ backgroundColor: "#FF0000" }}>
-                  Options
+                    Options
                   </DropdownToggle>
                   <DropdownMenu>
-                  {dropdownOptions.map((option) => (
-                  <DropdownItem
-                  key={option}
-                  onClick={() => handleOptionSelect(option, index)}
-                  disabled={isOptionDisabled(option)}
-                  >
-                  <span>
-                  <b>Answer : {option}</b>
-                  </span>
-                  </DropdownItem>
-                  ))}
+                    {dropdownOptions.map((option) => (
+                      <DropdownItem
+                        key={option}
+                        onClick={() => handleOptionSelect(option, index)}
+                        disabled={isOptionDisabled(option)}
+                      >
+                        <span>
+                          <b>Answer : {option}</b>
+                        </span>
+                      </DropdownItem>
+                    ))}
                   </DropdownMenu>
-                  </Dropdown>
-                  <span style={{ marginLeft: "10px" }}>
+                </Dropdown>
+                <span style={{ marginLeft: "10px" }}>
                   <b>Answer : ({selectedOptions[index]})</b>
-                  </span>
-                  </div>
-                  ))}
-                  </div>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
-                  <Button
-                  type="submit"
-                  onClick={handleSubmit}
-                  style={{
-                  backgroundColor: "#FF0000",
-                  width: "300px",
-                  height: "100px",
-                  marginRight: "25px",
-                  marginTop: "80px",
-                  marginBottom: "40px",
-                  position: "relative",
-                  }}
-                  >
-                  <h4>Continue to Exam Page 2</h4>
-                  </Button>
-                  <br />
-                  </div>
-                  </div>) : (
-                  <div>
-                  <div className="container-fluid">
-                  <div className="row">
-                  <div className="col-md-6 mb-4">
-                  <div
-                  style={{
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+          <Button
+            type="submit"
+            onClick={handleSubmit}
+            style={{
+              backgroundColor: "#FF0000",
+              width: "300px",
+              height: "100px",
+              marginRight: "25px",
+              marginTop: "80px",
+              marginBottom: "40px",
+              position: "relative",
+            }}
+          >
+            <h4>Continue to Exam Page 2</h4>
+          </Button>
+          <br />
+        </div>
+      </div>) : (
+      <div>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-6 mb-4">
+              <div
+                style={{
                   paddingTop: "80px",
                   fontSize: "16px",
                   whiteSpace: "pre-line",
                   marginLeft: "40px",
-                  }}
-                  >
-                  <h3 style={{ marginBottom: "25px" }}>
+                }}
+              >
+                <h3 style={{ marginBottom: "25px" }}>
                   <b>You have to be logged in to start the exam</b>
-                  </h3>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  )
-                  );
-                  }
-                  
-                  export default ExamPage1Content;
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  );
+}
+
+export default ExamPage1Content;

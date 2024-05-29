@@ -1,10 +1,24 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const LevelB1Row = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('three-friend.jpg');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <>
       <div className="col-md-6 mb-5">
         <div style={{ padding: "20px" }}>
           <img
-            src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/three-friend.jpg"
+            src={img}
             alt="Three-friend"
             style={{ width: "100%", height: "auto" }}
           />
@@ -20,12 +34,12 @@ const LevelB1Row = () => {
           }}
         >
           <h1 style={{
-              fontSize: "50px",
-            }}>The CEFR level B1</h1>
+            fontSize: "50px",
+          }}>The CEFR level B1</h1>
           <br />
           <p style={{
-              fontSize: "27px",
-            }}>
+            fontSize: "27px",
+          }}>
             Learners at B1 level can communicate in a simple and coherent way in
             daily life, at work, and when travelling write or speak about a
             range of topics in their own area of interest. participate in

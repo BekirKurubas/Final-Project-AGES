@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
 import TelcPage from "./TelcPage";
 import LoginPage from "./LoginPage";
-import RegisterPage from "./RegisterPage";
 import StartExamPage from "./StartExamPage";
 import ExamPage1 from "./ExamPage1";
 import ExamPage2 from "./ExamPage2";
@@ -40,7 +39,7 @@ function PagesRoutes() {
   const [remainingTime, setRemainingTime] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
 
-  useEffect(() => {}, [remainingTime, timerRunning]);
+  useEffect(() => { }, [remainingTime, timerRunning]);
 
   const handleStartExam = () => {
     setRemainingTime(5400);
@@ -54,7 +53,6 @@ function PagesRoutes() {
           <Route index element={<HomePage />} />
           <Route path="/Telc" element={<TelcPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
           <Route
             path="/start-exam"
             element={<StartExamPage startTimer={handleStartExam} />}

@@ -1,4 +1,18 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const WhyTelcRow = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('smile.jpg');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <>
       <div className="col-md-6 mb-5">
@@ -19,8 +33,8 @@ const WhyTelcRow = () => {
           </h1>
           <br />
           <p style={{
-              fontSize: "25px",
-            }}>
+            fontSize: "25px",
+          }}>
             Telc language tests are recognised worldwide by schools,
             universities, employers and government authorities as valid proof of
             language proficiency at all six levels of the Common European
@@ -47,7 +61,7 @@ const WhyTelcRow = () => {
         <div className="row">
           <div style={{ padding: "20px" }}>
             <img
-              src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/smile.jpg"
+              src={img}
               alt="smile"
               style={{ width: "100%", height: "auto" }}
             />

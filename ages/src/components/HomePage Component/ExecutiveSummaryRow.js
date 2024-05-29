@@ -1,4 +1,18 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const ExecutiveSummaryRow = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('summary-writing.jpg');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -27,7 +41,7 @@ const ExecutiveSummaryRow = () => {
           <div className="row">
             <div style={{ padding: "20px" }}>
               <img
-                src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/summary-writing.jpg"
+                src={img}
                 alt="Summary Writing"
                 style={{ width: "100%", height: "auto" }}
               />

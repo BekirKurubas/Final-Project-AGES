@@ -1,4 +1,18 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const HomePagePictureRow = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('ages-homepage-image.png');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div
       className="container-fluid"
@@ -9,7 +23,7 @@ const HomePagePictureRow = () => {
       }}
     >
       <img
-        src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Ages-Homepage-Image.png"
+        src={img}
         alt="AGES"
         style={{ marginTop: "0px", width: "100%", height: "auto" }}
       />

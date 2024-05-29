@@ -1,4 +1,23 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const AufbauRow = () => {
+  const [img1, setImg1] = useState([]);
+  const [img2, setImg2] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img1 = await fetchImage('telc-b1-exam-book.jpg');
+      const img2 = await fetchImage('pruefung-ablauf.png');
+
+      setImg1(img1);
+      setImg2(img2);
+
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -6,7 +25,7 @@ const AufbauRow = () => {
           <div className="row">
             <div style={{ padding: "20px" }}>
               <img
-                src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/telc-B1-exam-book.jpg"
+                src={img1}
                 alt="telc-B1-exam-book"
                 style={{ width: "100%", height: "auto" }}
               />
@@ -17,7 +36,7 @@ const AufbauRow = () => {
           <div className="row">
             <div style={{ padding: "20px" }}>
               <img
-                src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/Pr%C3%BCfung-Ablauf.png"
+                src={img2}
                 alt="Prüfung-Ablauf"
                 style={{ width: "100%", height: "auto" }}
               />

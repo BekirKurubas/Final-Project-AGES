@@ -1,11 +1,25 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const ConclusionRow = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('conclusion.jpg');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-6 mb-4">
           <div style={{ padding: "20px" }}>
             <img
-              src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/conclusion.jpg"
+              src={img}
               alt="Conculusion"
               style={{ marginBottom: "40px", width: "100%", height: "auto" }}
             />
@@ -20,7 +34,7 @@ const ConclusionRow = () => {
               marginBottom: "120px",
             }}
           >
-            <h1 style={{fontSize:"50px"}}>Conclusion</h1>
+            <h1 style={{ fontSize: "50px" }}>Conclusion</h1>
             <br></br>
             <p>
               In conclusion, the Amazing German Exam Simulation (AGES) project

@@ -1,11 +1,26 @@
+import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
+
 const HomePageGoalsRow = () => {
+  const [img, setImg] = useState();
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('goals.jpg');
+      setImg(img);
+    };
+
+    fetchImages();
+  }, []);
+
+
   return (
     <div className="container-fluid">
       <div className="row">
         <div className="col-md-6 mb-4">
           <div style={{ padding: "20px" }}>
             <img
-              src="https://github.com/BekirKurubas/Final-Project-Photos/raw/main/Project%20Photos/goals.jpg"
+              src={img}
               alt="Goals"
               style={{ width: "100%", height: "auto" }}
             />
@@ -19,7 +34,7 @@ const HomePageGoalsRow = () => {
               whiteSpace: "pre-line",
             }}
           >
-            <h1 style={{fontSize:"50px"}}>Goals</h1>
+            <h1 style={{ fontSize: "50px" }}>Goals</h1>
             <br></br>
             <p>
               · Effective Exam Simulation: AGES aims to provide users with a

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { fetchImage } from '../utils/fetchImage';
 import { Button } from "reactstrap";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
 
 const StartExamPageContent = ({ startTimer }) => {
   const { isAuthenticated, getAccessTokenSilently } = useAuth0();
-  const [imageUrl, setImageUrl] = useState('');
+  const [img, setImg] = useState();
   const navigate = useNavigate();
 
   const handleStartExam = async (e) => {
@@ -40,24 +41,14 @@ const StartExamPageContent = ({ startTimer }) => {
     }
   };
 
-  const [img, setImg] = useState();
-
-  const fetchImage = async () => {
-    console.log(`${process.env.REACT_APP_API_ENDPOINT}/image/b1_low.png`)
-    const res = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/image/b1_low.png`, {
-      method: "Get",
-      headers: {
-        'Content-Type': 'image/jpeg'
-      }
-    });
-    const imageBlob = await res.blob();
-    const imageObjectURL = URL.createObjectURL(imageBlob);
-    setImg(imageObjectURL);
-    console.log(imageObjectURL)
-  };
 
   useEffect(() => {
-    fetchImage();
+    const fetchImages = async () => {
+      const img = await fetchImage('b1_low.png');
+      setImg(img);
+    };
+
+    fetchImages();
   }, []);
 
   return (
@@ -163,15 +154,13 @@ const StartExamPageContent = ({ startTimer }) => {
                     justifyContent: "center",
                   }}
                 >
-                  {imageUrl ? (
+                  {
                     <img src={img} alt="Fetched from backend" style={{
                       width: "100%",
                       maxWidth: "400px",
                       height: "auto",
                     }} />
-                  ) : (
-                    <p>Loading...</p>
-                  )}
+                  }
                 </div>
               </div>
             </div>
