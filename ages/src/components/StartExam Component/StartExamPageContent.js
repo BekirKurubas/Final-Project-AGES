@@ -22,14 +22,12 @@ const StartExamPageContent = ({ startTimer }) => {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`
-          // Add any additional headers if needed
         },
       });
       console.log(response.status)
       if (response.ok) {
         const exam = await response.json()
         sessionStorage.setItem('examId', exam.id);
-        // TODO delete following 3 lines
         navigate('/exam-page-1');
       } else if (response.status === 400 && !!sessionStorage.getItem('examId')) {
         console.log("User already has an exam")
@@ -37,10 +35,8 @@ const StartExamPageContent = ({ startTimer }) => {
       } else {
         navigate('/start-exam');
       }
-      // Handle response data as needed
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);
-      // Handle error
     }
   };
 
@@ -63,7 +59,6 @@ const StartExamPageContent = ({ startTimer }) => {
   useEffect(() => {
     fetchImage();
   }, []);
-
 
   return (
     isAuthenticated ? (

@@ -5,10 +5,10 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const [showStartExamButton, setShowStartExamButton] = useState(true); // State to manage the visibility of the Start Exam button
-  const { isAuthenticated, logout } = useAuth0(); // Getting authentication status and logout function
+  const { isAuthenticated, logout } = useAuth0();
   const navigate = useNavigate();
   const location = useLocation();
+  const [showFinishExamButton, setShowFinishExamButton] = useState(false);
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -18,18 +18,16 @@ const Header = () => {
     logout({ returnTo: window.location.origin });
   };
 
-  const handleStartExamClick = () => {
-    setShowStartExamButton(false); // Hide the button when clicked
-    navigate("/start-exam"); // Programmatically navigate to "/start-exam" page
-  };
-
   useEffect(() => {
-    // Show the button on the home page and /Telc page
-    if (location.pathname === "/" || location.pathname === "/Telc") {
-      setShowStartExamButton(true);
-    } else {
-      setShowStartExamButton(false);
-    }
+    const examPages = [
+      "/exam-page-1",
+      "/exam-page-2",
+      "/exam-page-3",
+      "/exam-page-4",
+      "/exam-page-5"
+    ];
+
+    setShowFinishExamButton(examPages.includes(location.pathname));
   }, [location]);
 
   return (
@@ -92,10 +90,10 @@ const Header = () => {
             <li className="nav-item">
               {isAuthenticated ? (
                 <div className="d-flex align-items-center">
-                  {showStartExamButton && (
+                  {!showFinishExamButton && (
                     <button
                       className="nav-link btn btn-primary me-2"
-                      onClick={handleStartExamClick}
+                      onClick={() => navigate("/start-exam")}
                       style={{
                         backgroundColor: "white",
                         borderWidth: "2px",
@@ -103,6 +101,19 @@ const Header = () => {
                       }}
                     >
                       <b>Start Exam</b>
+                    </button>
+                  )}
+                  {showFinishExamButton && (
+                    <button
+                      className="nav-link btn btn-primary me-2"
+                      onClick={() => navigate("/result-page")}
+                      style={{
+                        backgroundColor: "white",
+                        borderWidth: "2px",
+                        borderStyle: "solid",
+                      }}
+                    >
+                      <b>Finish Exam</b>
                     </button>
                   )}
                   <button
@@ -119,7 +130,7 @@ const Header = () => {
                 </div>
               ) : (
                 <Link
-                  to="login"
+                  to="/login"
                   className="nav-link btn btn-primary"
                   style={{
                     backgroundColor: "white",

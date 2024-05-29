@@ -44,7 +44,6 @@ function PagesRoutes() {
 
   const handleStartExam = () => {
     setRemainingTime(5400);
-
     setTimerRunning(true);
   };
 
@@ -52,7 +51,7 @@ function PagesRoutes() {
     <div>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />          
+          <Route index element={<HomePage />} />
           <Route path="/Telc" element={<TelcPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -63,22 +62,27 @@ function PagesRoutes() {
           <Route
             path="/exam-page-1"
             element={<ExamPage1 lv1Urls={lv1Urls} />}
-          />          
+          />
           <Route
             path="/exam-page-2"
             element={<ExamPage2 lv2Urls={lv2Urls} />}
           />
-          <Route path="/exam-page-3" 
-          element={<ExamPage3 lv3Urls={lv3Urls}/>} />
-          
-          <Route path="/exam-page-4" 
-          element={<ExamPage4 sb1Urls={sb1Urls}/>} />
-
-          <Route path="/exam-page-5" 
-          element={<ExamPage5 sb2Urls={sb2Urls}/>} />
-
-          <Route path="/result-page" 
-          element={<ResultPage/>} />
+          <Route
+            path="/exam-page-3"
+            element={<ExamPage3 lv3Urls={lv3Urls} />}
+          />
+          <Route
+            path="/exam-page-4"
+            element={<ExamPage4 sb1Urls={sb1Urls} />}
+          />
+          <Route
+            path="/exam-page-5"
+            element={<ExamPage5 sb2Urls={sb2Urls} />}
+          />
+          <Route
+            path="/result-page"
+            element={<ResultPage />}
+          />
         </Route>
       </Routes>
     </div>
