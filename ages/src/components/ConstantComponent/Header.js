@@ -5,7 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
-  const { isAuthenticated, logout } = useAuth0();
+  const { isAuthenticated, getAccessTokenSilently, logout } = useAuth0();
+
   const navigate = useNavigate();
   const location = useLocation();
   const [showFinishExamButton, setShowFinishExamButton] = useState(false);
@@ -29,6 +30,31 @@ const Header = () => {
 
     setShowFinishExamButton(examPages.includes(location.pathname));
   }, [location]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const token = await getAccessTokenSilently();
+      const examId = sessionStorage.getItem('examId')
+      const responseFinisheExam = await fetch(`${process.env.REACT_APP_API_ENDPOINT}/exam/${examId}/finish`, {
+        method: "Post",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+          // Add any additional headers if needed
+        }
+      });
+      if (responseFinisheExam.ok) {
+        localStorage.removeItem("selectedOptions")
+        localStorage.removeItem("selectedOptions5")
+        navigate(`/result-page`);
+      } else {
+        navigate(`/start-exam`);
+      }
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
+  };
 
   return (
     <nav className="navbar navbar-expand-md bg-white">
@@ -106,7 +132,8 @@ const Header = () => {
                   {showFinishExamButton && (
                     <button
                       className="nav-link btn btn-primary me-2"
-                      onClick={() => navigate("/result-page")}
+                      type="submit"
+                      onClick={handleSubmit}
                       style={{
                         backgroundColor: "white",
                         borderWidth: "2px",
