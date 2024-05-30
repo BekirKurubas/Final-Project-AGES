@@ -9,7 +9,7 @@ import ExamPage2 from "./ExamPage2";
 import ExamPage3 from "./ExamPage3";
 import ExamPage4 from "./ExamPage4";
 import ExamPage5 from "./ExamPage5";
-import MainLayout from "./pageLayout.js/MainLayout";
+import MainLayout from "./page-layout/MainLayout";
 import ResultPage from "./ResultPage";
 
 function PagesRoutes() {

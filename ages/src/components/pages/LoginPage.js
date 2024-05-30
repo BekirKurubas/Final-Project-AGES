@@ -1,6 +1,6 @@
 import React from "react";
-import LoginHeader from "../components/LoginPage Component/LoginHeader";
-import LoginContent from "../components/LoginPage Component/LoginContent";
+import LoginHeader from "../login-page/LoginHeader";
+import LoginContent from "../login-page/LoginContent";
 
 const LoginPage = () => {
   return (

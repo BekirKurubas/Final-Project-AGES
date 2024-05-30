@@ -1,6 +1,6 @@
 import React from "react";
-import Telcheader from "../components/TELC Page Component/TelcHeader";
-import TelcContent from "../components/TELC Page Component/TelcContent";
+import Telcheader from "../telc-page/TelcHeader";
+import TelcContent from "../telc-page/TelcContent";
 
 
 const TelcPage = () => {

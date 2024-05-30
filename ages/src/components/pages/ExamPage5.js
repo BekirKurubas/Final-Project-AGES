@@ -1,6 +1,6 @@
 import React from "react";
-import ExamPage5Header from "../components/ConstantComponent/Exam/Exam Page 5/ExamPage5Header";
-import ExamPage5Content from "../components/ConstantComponent/Exam/Exam Page 5/ExamPage5Content";
+import ExamPage5Header from "../exam/exam-page-5/ExamPage5Header";
+import ExamPage5Content from "../exam/exam-page-5/ExamPage5Content";
 
 const ExamPage5 = ({ sb2Urls }) => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import PagesRoutes from "./Pages/PagesRoutes";
+import PagesRoutes from "./components/pages/PagesRoutes";
 import { useAuth0 } from "@auth0/auth0-react";
 import Loading from "./componentsAuth0/Loading";
 

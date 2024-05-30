@@ -1,6 +1,6 @@
 import React from "react";
-import StartExamPageHeader from "../components/StartExam Component/StartExamPageHeader";
-import StartExamPageContent from "../components/StartExam Component/StartExamPageContent";
+import StartExamPageHeader from "../start-exam/StartExamPageHeader";
+import StartExamPageContent from "../start-exam/StartExamPageContent";
 
 const StartExamPage = ({ startTimer }) => {
   return (
