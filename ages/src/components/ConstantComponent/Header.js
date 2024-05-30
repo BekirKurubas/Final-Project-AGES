@@ -133,7 +133,7 @@ const Header = () => {
                   {!showFinishExamButton && (
                     <button
                       className="nav-link btn btn-primary me-2"
-                      onClick={() => navigate("/exam-page-1")}
+                      onClick={() => navigate("/start-exam")}
                       style={{
                         backgroundColor: "white",
                         borderWidth: "2px",
