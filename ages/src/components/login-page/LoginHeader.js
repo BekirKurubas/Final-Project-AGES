@@ -1,5 +1,5 @@
 import React from "react";
-import LogoutButton from "../constant-components/LogoutButton";
+import LogoutButton from "../constant/LogoutButton";
 
 const LoginHeader = () => {
   
