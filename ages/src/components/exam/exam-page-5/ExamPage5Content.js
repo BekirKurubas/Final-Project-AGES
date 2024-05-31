@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
+import { fetchImage } from "../../utils/fetchImage";
 
 const ExamPage5Content = ({ sb2Urls = [], startTimer }) => {
   const [selectedOptions, setSelectedOptions] = useState(() => {
@@ -26,6 +27,15 @@ const ExamPage5Content = ({ sb2Urls = [], startTimer }) => {
   const navigate = useNavigate();
   const pageNumber = 5
   const intervalRef = useRef(null);
+  const [img, setImg] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img = await fetchImage('sb1_page-0001.jpeg');
+      setImg(img);
+    };
+    fetchImages();
+  }, []);
 
   useEffect(() => {
     if (timerRunning) {
@@ -233,10 +243,10 @@ const ExamPage5Content = ({ sb2Urls = [], startTimer }) => {
               maxWidth: "130%"
             }}
           >
-            {sb2Urls.map((url, index) => (
+            {[img].map((img, index) => (
               <img
                 key={index}
-                src={url}
+                src={img}
                 alt={`Full Screen ${index}`}
                 style={{ width: "60%", height: "auto", maxWidth: "60%" }}
               />

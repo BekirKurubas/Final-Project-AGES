@@ -8,8 +8,9 @@ import {
 } from "reactstrap";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from 'react-router-dom';
+import { fetchImage } from "../../utils/fetchImage";
 
-const ExamPage1Content = ({ lv1Urls, startTimer }) => {
+const ExamPage1Content = ({ startTimer }) => {
   const [selectedOptions, setSelectedOptions] = useState(() => {
     const storedOptions = localStorage.getItem("selectedOptions");
     return storedOptions ? JSON.parse(storedOptions) : Array(5).fill(null);
@@ -25,6 +26,8 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
   const navigate = useNavigate();
   const pageNumber = 1;
   const intervalRef = useRef(null);
+  const [img1, setImg1] = useState([]);
+  const [img2, setImg2] = useState([]);
 
   useEffect(() => {
     if (timerRunning) {
@@ -43,6 +46,17 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
       return () => clearInterval(intervalRef.current);
     }
   }, [timerRunning]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const img1 = await fetchImage('lv1-1_page-0001.jpg');
+      const img2 = await fetchImage('lv1-2_page-0001.jpg');
+      setImg1(img1);
+      setImg2(img2);
+    };
+
+    fetchImages();
+  }, []);
 
   useEffect(() => {
     if (!timerRunning && remainingTime > 0) {
@@ -170,10 +184,10 @@ const ExamPage1Content = ({ lv1Urls, startTimer }) => {
 
         <div style={{ marginTop: "100px", marginBottom: "50px" }}>
           <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-            {lv1Urls.map((url, index) => (
+            {[img1, img2].map((img, index) => (
               <img
                 key={index}
-                src={url}
+                src={img}
                 alt={`Full Screen ${index}`}
                 style={{ width: "50%", height: "auto", maxWidth: "50%" }}
               />
