@@ -84,7 +84,7 @@ const StartExamPageContent = ({ startTimer }) => {
                   START B1 GERMAN TELC MODEL TEST !
                 </h4>
               </div>
-              <div className="col-md-12 text-center mt-3">
+              <div className="col-md-12 mt-3">
                 <Button
                   color="danger"
                   size="lg"
@@ -93,6 +93,7 @@ const StartExamPageContent = ({ startTimer }) => {
                     width: "100px",
                     height: "100px",
                     marginBottom: "20px",
+                    marginLeft: "220px",                   
                   }}
                   onClick={handleStartExam}
                   type="submit"
